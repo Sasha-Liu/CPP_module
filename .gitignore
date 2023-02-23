@@ -1,0 +1,6 @@
+#ignore every a.out
+a.out
+
+#ignore every .o file
+*.o
+

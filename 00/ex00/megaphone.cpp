@@ -6,21 +6,16 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:43:35 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/23 11:10:54 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/02/23 12:22:26 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cctype.h>
+#include <cctype>
 
-int	main(int argc, char **argv)
+char	my_toupper(char ch)
 {
-	if (argc == 0)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
-		return (0);
-	}
-	
+	return static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
 }
 
 void	ft_str_toupper(char *str)
@@ -30,11 +25,32 @@ void	ft_str_toupper(char *str)
 	i = 0;
 	while (str[i])
 	{
-		str[i] = 
+		str[i] = my_toupper(str[i]);
+		i++;
 	}
 }
 
-char	my_toupper(char ch)
+int	main(int argc, char **argv)
 {
-	return static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
+	int	i;
+	
+	if (argc == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		return (0);
+	}
+	i = 1;
+	while (argv[i])
+	{
+		ft_str_toupper(argv[i]);
+		i++;
+	}
+	i = 1;
+	while (argv[i])
+	{
+		std::cout << argv[i];
+		i++;
+	}
+	std::cout << std::endl;
+	return (0);
 }

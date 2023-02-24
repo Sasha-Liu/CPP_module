@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:41:03 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/24 16:06:16 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/02/24 16:29:02 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ int 		Contact::ft_set_dark_secret(std::string dark_secret)
 		return (1);
 	}
 	this->_dark_secret = dark_secret;
-	return ;
+	return (0);
 }
 
 std::string	Contact::ft_get_dark_secret(void) const

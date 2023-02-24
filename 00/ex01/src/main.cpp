@@ -6,18 +6,31 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:31:07 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/23 13:37:11 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/02/24 15:02:42 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int	main()
 {
-	Contact	contact;
+	PhoneBook		phonebook;
+	Contact			contact[8];
+	Contact const	*ret;
 
-	contact.ft_set_first_name("John");
-	contact.ft_set_last_name("Smith");
-	std::cout << contact.ft_get_first_name() << std::endl;
-	std::cout << contact.ft_get_last_name() << std::endl;
+	contact[0].ft_set_first_name("Sasha");
+	contact[0].ft_set_last_name("Liu");
+	
+	contact[1].ft_set_first_name("Kay");
+	contact[1].ft_set_last_name("Lan");
+
+	phonebook.ft_set_contact(contact[0]);
+	phonebook.ft_set_contact(contact[1]);
+	
+	ret = phonebook.ft_get_contact(0);
+	if (ret)
+		std::cout << ret->ft_get_first_name() << " " << ret->ft_get_last_name() << std::endl; 
+	ret = phonebook.ft_get_contact(1);
+	if (ret)
+		std::cout << ret->ft_get_first_name() << " " << ret->ft_get_last_name() << std::endl;
 }

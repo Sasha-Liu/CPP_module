@@ -6,14 +6,15 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:28:15 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/26 17:20:47 by sasha            ###   ########.fr       */
+/*   Updated: 2023/02/26 18:44:25 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void):
-    _next(0)
+    _next(0),
+	_count(0)
 {
 }
 
@@ -31,6 +32,7 @@ PhoneBook::~PhoneBook(void)
 PhoneBook   &PhoneBook::operator=(PhoneBook const &phonebook)
 {
 	this->_next = phonebook._next;
+	this->_count = phonebook._count;
 	for(int i = 0; i < MAX; i++)
 		this->_contact[i] = phonebook._contact[i];
 	return (*this);
@@ -42,11 +44,13 @@ void	PhoneBook::ft_set_contact(Contact const &contact)
 	this->_next++;
 	if (this->_next == MAX)
 		this->_next = 0;
+	if (this->_count < MAX)
+		this->_count++;
 }
 
 Contact const	*PhoneBook::ft_get_contact(int index) const
 {
-	if (index < 0 || index >= this->_next)
+	if (index < 0 || index >= _count)
 		return (NULL);
 	return (&(this->_contact[index]));
 }
@@ -57,7 +61,6 @@ void	PhoneBook::ft_display(void) const
 	int					index;
 
 	index = 0;
-	std::cout << std::setw(10);
 	std::cout << "+-------------------------------------------+\n";
 	std::cout << "|     index|First name| Last name|  Nickname|\n";
 	std::cout << "+-------------------------------------------+\n";

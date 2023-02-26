@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:28:15 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/26 16:43:37 by sasha            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:20:47 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,21 @@ void	PhoneBook::ft_display(void) const
 		if (contact == NULL)
 			break ;
 		std::cout << "|" << std::setw(10) << index << "|";
-		std::cout << std::setw(10) << contact->ft_get_first_name() << "|";
-		std::cout << std::setw(10) << contact->ft_get_last_name() << "|";
-		std::cout << std::setw(10) << contact->ft_get_nickname() << "|\n";
+		std::cout << std::setw(10) 
+		<< ft_trunc_str(contact->ft_get_first_name()) << "|";
+		std::cout << std::setw(10) 
+		<< ft_trunc_str(contact->ft_get_last_name()) << "|";
+		std::cout << std::setw(10) 
+		<< ft_trunc_str(contact->ft_get_nickname()) << "|\n";
 		index++;
 	}
 	if (index > 0)
 		std::cout << "+-------------------------------------------+\n";
+}
+
+std::string	PhoneBook::ft_trunc_str(std::string str)
+{
+	if (str.length() <= 10)
+		return (str);
+	return (str.substr(0, 9) + ".");
 }

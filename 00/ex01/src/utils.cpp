@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:47:45 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/26 16:01:24 by sasha            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:23:09 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,21 @@ bool	my_isalpha(char c)
 void	ft_exit_message(void)
 {
 	std::cout << "\n\n";
-	std::cout << "+-----------------------------------+\n";
-	std::cout << "|  Thank you for using this amazing |\n";
-	std::cout << "|  fantastic and awesome phonebook! |\n";
-	std::cout << "+-----------------------------------+\n";
-	std::cout << "###########  Thank you !  ###########\n\n";
+	std::cout << "+-------------------------------------------+\n";
+	std::cout << "|      Thank you for using this amazing     |\n";
+	std::cout << "|      fantastic and awesome phonebook!     |\n";
+	std::cout << "+-------------------------------------------+\n";
+	std::cout << "###############  Thank you !  ###############\n\n";
 }
 
 void    ft_welcome_message(void)
 {
 	std::cout << "\n\n";
-	std::cout << "############  PhoneBook  ############\n";
-	std::cout << "+-----------------------------------+\n";
-	std::cout << "|  You have the following options:  |\n";
-	std::cout << "|    ADD       SEARCH       EXIT    |\n";
-	std::cout << "+-----------------------------------+\n\n";
+	std::cout << "################  PhoneBook  ################\n";
+	std::cout << "+-------------------------------------------+\n";
+	std::cout << "|      You have the following options:      |\n";
+	std::cout << "|      ADD         SEARCH         EXIT      |\n";
+	std::cout << "+-------------------------------------------+\n";
 }
 
 void	ft_fillout(Contact &contact)
@@ -122,3 +122,4 @@ void	ft_get_index(int &index)
 	std::cout << "\nBye\n";
 	exit(0);
 }
+

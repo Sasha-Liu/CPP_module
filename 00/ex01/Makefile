@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+         #
+#    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 15:31:43 by hsliu             #+#    #+#              #
-#    Updated: 2023/02/24 15:53:36 by hsliu            ###   ########.fr        #
+#    Updated: 2023/02/26 17:49:47 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ OBJ_DIR	=	./.obj/
 
 INC_DIR	=	./include/
 
-LIST_SRC	=	main.cpp ClassPhoneBook.cpp ClassContact.cpp utils.cpp
+LIST_SRC	=	main.cpp ClassPhoneBook.cpp ClassContact.cpp \
+				utils.cpp main_func.cpp
 
 LIST_OBJ	=	$(LIST_SRC:.cpp=.o) 
 

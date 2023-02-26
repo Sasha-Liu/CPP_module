@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:30:59 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/26 15:39:59 by sasha            ###   ########.fr       */
+/*   Updated: 2023/02/26 16:40:05 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include <string>
 # include <iostream>
+# include <iomanip>
 # include <cctype>
 # include <stdlib.h>
 # include "ClassContact.hpp"
@@ -33,6 +34,7 @@ void	ft_exit_message(void);
 void    ft_welcome_message(void);
 void	ft_fillout(Contact &contact);
 void    ft_get_input(std::string &input);
+void	ft_get_index(int &index);
 
 /*	main.cpp	*/
 

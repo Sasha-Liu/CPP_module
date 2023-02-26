@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:31:07 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/26 16:04:05 by sasha            ###   ########.fr       */
+/*   Updated: 2023/02/26 16:24:03 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	main(void)
 		}
 		else if (input.compare("SEARCH") == 0)
 		{
-			//show a contact
+			my_phonebook.ft_display();
+			//show all contact
+			//prompt for index
+			//display all field
 		}
 		else if (input.compare("EXIT") == 0)
 		{
@@ -47,8 +50,8 @@ int	main(void)
 
 void	ft_show_contact(PhoneBook &phonebook)
 {
-	int		index;
-	Contact	contact;
+	int				index;
+	Contact const	*contact;
 
 	std::cout << "Please enter an index: ";
 	ft_get_index(index);

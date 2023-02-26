@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:30:59 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/24 17:14:31 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/02/26 15:39:59 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ bool	ft_is_phone_number(std::string str);
 bool	ft_is_name(std::string str);
 bool	my_isdigit(char c);
 bool	my_isalpha(char c);
+void	ft_exit_message(void);
+void    ft_welcome_message(void);
+void	ft_fillout(Contact &contact);
+void    ft_get_input(std::string &input);
 
 /*	main.cpp	*/
-void	ft_fillout(Contact &contact);
 
 
 #endif

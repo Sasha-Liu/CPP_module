@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClassPhoneBook.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:28:15 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/24 15:01:28 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/02/26 16:03:49 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ PhoneBook   &PhoneBook::operator=(PhoneBook const &phonebook)
 	return (*this);
 }
 
-void		PhoneBook::ft_set_contact(Contact const &contact)
+void	PhoneBook::ft_set_contact(Contact const &contact)
 {	
 	this->_contact[this->_next] = contact;
 	this->_next++;

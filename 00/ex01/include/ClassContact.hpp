@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ClassContact.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:41:10 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/24 15:54:23 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/03/02 22:07:00 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+#ifndef CLASSCONTACT_HPP
+# define CLASSCONTACT_HPP
 
 /*
 	A contact cannot have empty field 
@@ -43,3 +46,5 @@ class   Contact
 		std::string	_dark_secret;
 		static int	_count;
 };
+
+#endif

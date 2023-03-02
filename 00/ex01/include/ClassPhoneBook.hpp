@@ -6,11 +6,14 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:28:19 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/26 18:30:06 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/02 22:07:44 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+#ifndef CLASSPHONEBOOK_H
+# define CLASSPHONEBOOK_H
 
 class   Contact;
 
@@ -35,3 +38,5 @@ class   PhoneBook
 		static	std::string	ft_trunc_str(std::string str);
 
 };
+
+#endif

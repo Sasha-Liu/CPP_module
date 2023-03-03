@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 12:56:21 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 14:38:50 by sasha            ###   ########.fr       */
+/*   Created: 2023/03/03 14:22:20 by sasha             #+#    #+#             */
+/*   Updated: 2023/03/03 14:52:46 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 #include <new>
+#include <string>
+#include <iostream>
+#include "Zombie.hpp"
 
-Zombie*	newZombie(std::string name)
+Zombie* zombieHorde(int N, std::string name)
 {
-	Zombie	*zombie;
+	Zombie	*p;
 
-	zombie = new Zombie;
-	if (zombie == NULL)
+	p = new Zombie[N];
+	if (p ==NULL)
 	{
 		std::cerr << "new fails\n";
 		return (NULL);
 	}
-	zombie->set_name(name);
-	return (zombie);
+	for (int i = 0; i < N; i++)
+		p[i].set_name(name);
+	return (p);
 }

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:05:33 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 14:16:29 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/03 14:46:10 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Zombie
     public:
         Zombie(void);
         Zombie(std::string name);
+		Zombie(Zombie const &zombie);
         ~Zombie(void);
         
         void    	announce(void) const;

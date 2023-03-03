@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 12:56:21 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 14:38:50 by sasha            ###   ########.fr       */
+/*   Created: 2023/03/02 22:05:33 by sasha             #+#    #+#             */
+/*   Updated: 2023/03/03 14:45:46 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <new>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Zombie*	newZombie(std::string name)
+# include <string>
+
+class Zombie
 {
-	Zombie	*zombie;
+    public:
+        Zombie(void);
+        Zombie(std::string name);
+		Zombie(Zombie const &zombie);
+        ~Zombie(void);
+        
+        void    	announce(void) const;
+		void		set_name(std::string name);
+		std::string	get_name(void) const;
+		Zombie		operator=(Zombie &zombie);
+    private:
+        std::string	_name;
+};
 
-	zombie = new Zombie;
-	if (zombie == NULL)
-	{
-		std::cerr << "new fails\n";
-		return (NULL);
-	}
-	zombie->set_name(name);
-	return (zombie);
-}
+#endif

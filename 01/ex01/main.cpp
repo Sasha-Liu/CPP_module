@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 12:56:21 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 14:38:50 by sasha            ###   ########.fr       */
+/*   Created: 2023/03/03 14:41:22 by sasha             #+#    #+#             */
+/*   Updated: 2023/03/03 14:50:08 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <new>
+#include <iostream>
+#include <string>
 
-Zombie*	newZombie(std::string name)
+Zombie* zombieHorde(int N, std::string name);
+
+int main(void)
 {
-	Zombie	*zombie;
+	Zombie	*zombie_ptr;
 
-	zombie = new Zombie;
-	if (zombie == NULL)
-	{
-		std::cerr << "new fails\n";
-		return (NULL);
-	}
-	zombie->set_name(name);
-	return (zombie);
+	zombie_ptr = zombieHorde(20, "John");
+	for(int i = 0; i < 20; i++)
+		zombie_ptr[i].announce();
+	delete[] zombie_ptr;
 }

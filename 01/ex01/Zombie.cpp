@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:05:23 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 14:45:56 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/03 16:22:25 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Zombie::~Zombie(void)
 	std::cout << _name << ": destroyed\n";
 }
 
-Zombie		Zombie::operator=(Zombie &zombie)
+Zombie		&Zombie::operator=(Zombie &zombie)
 {
 	this->_name = zombie._name;
 	return (*this);

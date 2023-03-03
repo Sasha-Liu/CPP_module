@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 22:05:33 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 16:22:14 by sasha            ###   ########.fr       */
+/*   Created: 2023/03/03 15:18:20 by sasha             #+#    #+#             */
+/*   Updated: 2023/03/03 16:31:41 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef WEAPON_H
+# define WEAPON_H
 
-# include <string>
+#include <string>
 
-class Zombie
+class Weapon
 {
-    public:
-        Zombie(void);
-        Zombie(std::string name);
-		Zombie(Zombie const &zombie);
-        ~Zombie(void);
-        
-        void    	announce(void) const;
-		void		set_name(std::string name);
-		std::string	get_name(void) const;
-		Zombie		&operator=(Zombie &zombie);
-    private:
-        std::string	_name;
+	public:
+		Weapon(void);
+		Weapon(Weapon const &weapon);
+		Weapon(std::string weapon);
+		~Weapon(void);
+
+		Weapon		&operator=(Weapon const &weapon);
+		void		setType(std::string type);
+		std::string	getType(void) const;
+
+	private:
+		std::string	_type;
 };
 
 #endif

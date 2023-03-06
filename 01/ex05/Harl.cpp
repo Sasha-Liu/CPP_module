@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 16:38:11 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/05 18:11:02 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/06 13:43:05 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,42 @@
 #include <map>
 
 Harl::Harl(void)
-	:func({
-		{"DEBUG", &(this->debug)},
-		{"INFO", &(this->info)},
-		{"WARNING", &(this->warning)},
-		{"ERROR", &(this->error)}
-	})
+	:debug_p(&Harl::debug),
+	info_p(&Harl::info),
+	warning_p(&Harl::warning),
+	error_p(&Harl::error)
 {
+	func["DEBUG"] = &Harl::debug;
+	func["INFO"] = &Harl::info;
+	func["WARNING"] = &Harl::warning;
+	func["ERROR"] = &Harl::error;
 }
 
 Harl::Harl(Harl &harl)
-	:func({
-		{"DEBUG", &(harl.debug)},
-		{"INFO", &(harl.info)},
-		{"WARNING", &(harl.warning)},
-		{"ERROR", &(harl.error)}
-	})
 {
+	func["DEBUG"] = harl.debug_p;
+	func["INFO"] = harl.info_p;
+	func["WARNING"] = harl.warning_p;
+	func["ERROR"] = harl.error_p;
 }
 
 Harl::~Harl(void)
 {
 }
 
+Harl	&Harl::operator=(Harl const &harl)
+{
+	func["DEBUG"] = harl.debug_p;
+	func["INFO"] = harl.info_p;
+	func["WARNING"] = harl.warning_p;
+	func["ERROR"] = harl.error_p;
+	return (*this);
+}
+
 void	Harl::complain(std::string level)
 {
-	this->func[level];
+	std::cout << "hey\n";
+	(this->*func[level])();
 }
 
 void	Harl::debug(void)

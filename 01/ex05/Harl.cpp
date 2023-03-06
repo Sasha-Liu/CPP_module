@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 16:38:11 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/06 13:43:05 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/03/06 13:51:08 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,11 @@ Harl	&Harl::operator=(Harl const &harl)
 
 void	Harl::complain(std::string level)
 {
-	std::cout << "hey\n";
+	if (func.find(level) == func.end())
+	{
+		std::cout << "[annoyed murmuring]\n";
+		return ;
+	}
 	(this->*func[level])();
 }
 

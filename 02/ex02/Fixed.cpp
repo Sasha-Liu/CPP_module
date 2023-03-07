@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:37 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/07 14:15:11 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/07 14:27:28 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,9 +157,11 @@ Fixed	Fixed::operator*(Fixed const &fix) const
 
 Fixed	Fixed::operator/(Fixed const &fix) const
 {
-	Fixed ret;
+	float	f;
+	Fixed	ret;
 
-	ret.setRawBits(this->getRawBits() / fix.getRawBits());
+	f = this->toFloat() / fix.toFloat();
+	ret.setRawBits((int)roundf(f * 256));
 	return (ret);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 16:38:11 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/06 14:07:09 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/03/07 10:19:32 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,46 @@
 #include <map>
 
 Harl::Harl(void)
-	:debug_p(&Harl::debug),
-	info_p(&Harl::info),
-	warning_p(&Harl::warning),
-	error_p(&Harl::error)
+	:func_p(&Harl::other)
 {
-	func["DEBUG"] = &Harl::debug;
-	func["INFO"] = &Harl::info;
-	func["WARNING"] = &Harl::warning;
-	func["ERROR"] = &Harl::error;
-}
-
-Harl::Harl(Harl &harl)
-{
-	func["DEBUG"] = harl.debug_p;
-	func["INFO"] = harl.info_p;
-	func["WARNING"] = harl.warning_p;
-	func["ERROR"] = harl.error_p;
 }
 
 Harl::~Harl(void)
 {
 }
 
-Harl	&Harl::operator=(Harl const &harl)
-{
-	func["DEBUG"] = harl.debug_p;
-	func["INFO"] = harl.info_p;
-	func["WARNING"] = harl.warning_p;
-	func["ERROR"] = harl.error_p;
-	return (*this);
-}
-
 void	Harl::complain(std::string level)
 {
-	if (func.find(level) == func.end())
+	int	lev;
+	
+	lev = 0;
+	if (level.compare("DEBUG") == 0)
+		lev = 1;
+	else if (level.compare("INFO") == 0)
+		lev = 2;
+	else if (level.compare("WARNING") == 0)
+		lev = 3;
+	else if (level.compare("ERROR") == 0)
+		lev = 4;
+	switch(lev)
 	{
-		std::cout << "[ Probably complaining about insignificant problems ]\n";
-		return ;
+		case 1:
+			func_p = &Harl::debug;
+			break ;
+		case 2:
+			func_p = &Harl::info;
+			break ;
+		case 3:
+			func_p = &Harl::warning;
+			break ;
+		case 4:
+			func_p = &Harl::error;
+			break;
+		default:
+			func_p = &Harl::other;
+			break ;
 	}
-	(this->*func[level])();
+	(this->*func_p)();
 }
 
 void	Harl::debug(void)
@@ -79,4 +79,9 @@ void	Harl::error(void)
 {
 	std::cout << "[ ERROR ]\n";
 	std::cout << "This is unacceptable! I want to speak to the manager now.\n";
+}
+
+void	Harl::other(void)
+{
+	std::cout << "[ Probably complaining about insignificant problems ]\n";
 }

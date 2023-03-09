@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Diamond.hpp                                        :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:25:03 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/09 16:07:22 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/09 16:49:53 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		~DiamondTrap(void);
 		
 		DiamondTrap		&operator=(DiamondTrap const &diamond);
-		void			whoAmI(void);
+		void	whoAmI(void);
 		virtual void	attack(const std::string& target);
 
 	private:

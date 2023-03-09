@@ -6,7 +6,7 @@
 #    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 15:31:43 by hsliu             #+#    #+#              #
-#    Updated: 2023/03/09 16:12:34 by sasha            ###   ########.fr        #
+#    Updated: 2023/03/09 16:58:10 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ INC		=	$(addprefix $(INC_DIR), $(LIST_INC))
 
 CC		=	c++
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -Wshadow -std=c++98
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:02:08 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/09 11:50:58 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/09 12:26:26 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ ScavTrap::ScavTrap(std::string name)
 ScavTrap::ScavTrap(ScavTrap const &scav)
 	:ClapTrap(scav)
 {
-	this->setName(scav.getName());
-	this->setHitPoint(scav.getHitPoint());
-	this->setEnergyPoint(scav.getEnergyPoint());
-	this->setAttackDamage(scav.getAttackDamage());
 	std::cout << "ScavTrap: copy ctor called\n";
 }
 ScavTrap::~ScavTrap(void)
@@ -55,7 +51,7 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (this->getEnergyPoint() < 0)
 	{
-		std::cout << "ClapTrap " << this->getName()
+		std::cout << "ScavTrap " << this->getName()
 				<< " has no more energy point\n";
 		return ;
 	}

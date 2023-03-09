@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:33:31 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/09 10:49:20 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/09 11:38:37 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,5 +154,5 @@ void	ClapTrap::setAttackDamage(int n)
 		this->_attack_damage = 0;
 		return ;
 	}
-	this->_attack_damage = 0;	
+	this->_attack_damage = n;
 }

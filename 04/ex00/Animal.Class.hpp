@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:37:32 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 12:08:00 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 12:59:03 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Animal
 		void				setType(std::string type);
 		virtual void		makeSound(void) const;
 
-	private:
-		std::string	_type;
+	protected:
+		std::string			_type;
 };
 
 #endif

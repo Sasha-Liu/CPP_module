@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:53:59 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 12:18:11 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 13:01:16 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 Cat::Cat(void)
 	:Animal()
 {
-	this->setType("cat");
+	this->_type = "cat";
 	std::cout << "Default ctor in Cat Class\n";
 }
 
 Cat::Cat(Cat const &cat)
 	:Animal()
 {
-	this->setType(cat.getType());
+	this->_type = cat._type;
 	std::cout << "Copy ctor in Cat Class\n";
 }
 

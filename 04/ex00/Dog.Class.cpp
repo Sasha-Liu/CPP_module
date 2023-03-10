@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:10:08 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 12:18:18 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 13:24:54 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 Dog::Dog(void)
 	:Animal()
 {
-	this->setType("dog");
+	this->_type = "dog";
 	std::cout << "Default ctor in Dog Class\n";
 }
 
 Dog::Dog(Dog const &dog)
 	:Animal()
 {
-	this->setType(dog.getType());
+	this->_type = dog._type;
 	std::cout << "Copy ctor in Dog Class\n";
 }
 

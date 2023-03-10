@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:33:31 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/09 11:38:37 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 11:21:21 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,12 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &clap)
 
 std::ostream &operator<<(std::ostream &out, ClapTrap const &clap)
 {
-	out << "[NAME]          " << clap._name << std::endl
-		<< "[HIT POINT]     " << clap._hit_point << std::endl
-		<< "[ENERGY POINT]  " << clap._energy_point << std::endl
-		<< "[ATTACK DAMAGE] " << clap._attack_damage << std::endl;
+	out << "[NAME]          " << clap.getName() << std::endl
+		<< "[HIT POINT]     " << clap.getHitPoint() << std::endl
+		<< "[ENERGY POINT]  " << clap.getEnergyPoint() << std::endl
+		<< "[ATTACK DAMAGE] " << clap.getAttackDamage() << std::endl;
 	return (out);
 }
-
 
 void		ClapTrap::attack(const std::string& target)
 {

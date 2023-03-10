@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/07 13:05:52 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 11:09:26 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <cmath>
 
 class Fixed
-{
+{	
 	public:
 		Fixed(void);
 		Fixed(int const num);
@@ -31,12 +31,12 @@ class Fixed
 		void	setRawBits(int const raw);
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-
-		friend	std::ostream& operator<<(std::ostream &out, const Fixed &fix);
 		
 	private:
 		int			raw;
 		static int	precision;	
 };
+
+std::ostream& operator<<(std::ostream &out, const Fixed &fix);
 
 #endif

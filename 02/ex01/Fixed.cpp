@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:37 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/07 13:16:08 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 11:00:44 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		Fixed::toInt(void) const
 	return (this->raw >> Fixed::precision);
 }
 
-std::ostream& operator<<(std::ostream &out, const Fixed &fix)
+std::ostream& operator<<(std::ostream &out, Fixed const &fix)
 {
 	out << fix.toFloat();
 	return (out);

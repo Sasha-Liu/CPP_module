@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:04:52 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/07 15:41:10 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 11:15:13 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,12 @@ class Point
 		Fixed const	&getY(void) const;
 		void		setX(Fixed const &fix);
 		void		setY(Fixed const &fix);
-
-		friend	std::ostream	&operator<<(std::ostream &out, Point const &p);
 	
 	private:
 		Fixed	x;
 		Fixed	y;
 };
 
+std::ostream	&operator<<(std::ostream &out, Point const &p);
 
 #endif

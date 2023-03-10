@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:21:17 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/09 11:35:29 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/10 11:19:26 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ class ClapTrap
 		void	setHitPoint(int n);
 		void	setEnergyPoint(int n);
 		void	setAttackDamage(int n);
-
-		friend	std::ostream &operator<<(std::ostream &out, ClapTrap const &clap);
 	
 	private:
 		std::string	_name;
@@ -47,5 +45,7 @@ class ClapTrap
 		int			_energy_point;
 		int			_attack_damage;
 };
+
+std::ostream &operator<<(std::ostream &out, ClapTrap const &clap);
 
 #endif

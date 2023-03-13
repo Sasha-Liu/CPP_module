@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:59:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/13 14:15:03 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/13 14:23:55 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,23 @@ int	main(void)
 	{
 		delete animal[i];
 	}
+
+	std::cout << "\n\n###   Test 2   ### \n\n";
+
+	Cat	*kitten_1 = new Cat;
+	
+	kitten_1->addIdea("I want to knock over da mug");
+	
+	Cat *kitten_2 = new Cat(*kitten_1);
+	
+	std::cout << "kitten 1: " << *(kitten_1->getIdea(0)) << std::endl;
+	std::cout << "kitten 2: " << *(kitten_2->getIdea(0)) << std::endl;
+	
+	delete kitten_1;
+
+	std::cout << "kitten 1: deleted\n";
+	std::cout << "kitten 2: " << *(kitten_2->getIdea(0)) << std::endl;
+
+	delete kitten_2;
+
 }

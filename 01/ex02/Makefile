@@ -6,11 +6,11 @@
 #    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 15:31:43 by hsliu             #+#    #+#              #
-#    Updated: 2023/03/03 15:14:22 by sasha            ###   ########.fr        #
+#    Updated: 2023/03/27 16:41:01 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	HI_THIS_IS_STRING
+NAME	=	HI_THIS_IS_BRAIN
 
 MAKE	=	make
 

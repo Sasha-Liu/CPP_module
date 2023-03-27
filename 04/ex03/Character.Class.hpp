@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.Class.hpp                               :+:      :+:    :+:   */
+/*   Character.Class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 11:56:32 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/14 11:59:47 by sasha            ###   ########.fr       */
+/*   Created: 2023/03/14 12:00:25 by sasha             #+#    #+#             */
+/*   Updated: 2023/03/14 12:02:56 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_CLASS_HPP
-# define ICHARACTER_CLASS_HPP
+#ifndef CHARACTER_CLASS_HPP
+# define CHARACTER_CLASS_HPP
 
-# include <string>
-
-class ICharacter
+class Character : public ICharacter
 {
 	public:
-		virtual ~ICharacter(){}
-		virtual std::string const	&getName() const = 0;
-		virtual void				equip(AMateria *m) = 0;
-		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter &targer) = 0;
+
+
+
+	private:
+		AMateria	*_inventory[4];
 };
 
 #endif

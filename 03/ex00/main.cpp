@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:06:15 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/07 17:26:44 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:45:48 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,4 @@ int	main(void)
 	clap2.takeDamage(3);
 	clap2.beRepaired(3);
 	std::cout << "Show state\n"	<< clap1 << clap2 << clap3 << std::endl;
-
-
-
-
 }

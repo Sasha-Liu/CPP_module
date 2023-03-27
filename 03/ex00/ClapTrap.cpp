@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:33:31 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 11:18:49 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:44:42 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ ClapTrap::ClapTrap(std::string name)
 }
 
 ClapTrap::ClapTrap(ClapTrap const &clap)
-	:_name(clap._name),
-	_hit_point(clap._hit_point), 
-	_energy_point(clap._energy_point),
-	_attack_damage(clap._attack_damage)
+	:_name(clap._name), _hit_point(clap._hit_point), 
+	_energy_point(clap._energy_point), _attack_damage(clap._attack_damage)
 {
 	std::cout << "ClapTrap: copy ctor called\n";
 }

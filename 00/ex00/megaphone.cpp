@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:43:35 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/23 12:22:26 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/03/27 15:58:47 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,6 @@ int	main(int argc, char **argv)
 	while (argv[i])
 	{
 		ft_str_toupper(argv[i]);
-		i++;
-	}
-	i = 1;
-	while (argv[i])
-	{
 		std::cout << argv[i];
 		i++;
 	}

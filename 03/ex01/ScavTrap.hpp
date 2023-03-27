@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:42:36 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/09 11:48:49 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:48:07 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(void);
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap const &scav);
-		~ScavTrap(void);
+		virtual ~ScavTrap(void);
 		
 		void			guardGate(void);
 		virtual void	attack(const std::string& target);

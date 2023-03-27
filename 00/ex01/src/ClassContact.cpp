@@ -3,34 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ClassContact.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:41:03 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/24 16:29:02 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/03/27 16:03:27 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-Contact::Contact(void)
-{
-    _count++;
-}
+Contact::Contact(void) {}
 
 Contact::Contact(Contact const &contact):
     _first_name(contact._first_name),
     _last_name(contact._last_name),
     _nickname(contact._nickname),
     _phone_number(contact._phone_number),
-    _dark_secret(contact._dark_secret)
-{
-    _count++;
-}
+    _dark_secret(contact._dark_secret) {}
 
-Contact::~Contact(void)
-{
-    _count--;
-}
+Contact::~Contact(void) {}
 
 Contact		&Contact::operator=(Contact const &contact)
 {
@@ -41,11 +32,6 @@ Contact		&Contact::operator=(Contact const &contact)
 	this->_dark_secret = contact._dark_secret;
 	return (*this);
 }
-
-/*
-	How many contacts are there in total
-*/
-int	Contact::_count = 0;
 
 int			Contact::ft_set_first_name(std::string first_name)
 {

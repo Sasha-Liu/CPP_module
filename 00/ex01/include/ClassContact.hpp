@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:41:10 by hsliu             #+#    #+#             */
-/*   Updated: 2023/03/02 22:07:00 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 16:02:35 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ class   Contact
 		std::string	_nickname;
 		std::string	_phone_number;
 		std::string	_dark_secret;
-		static int	_count;
 };
 
 #endif

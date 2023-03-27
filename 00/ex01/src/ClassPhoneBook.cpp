@@ -6,28 +6,23 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:28:15 by hsliu             #+#    #+#             */
-/*   Updated: 2023/02/26 18:44:25 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 16:08:52 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void):
-    _next(0),
-	_count(0)
-{
-}
+    _next(0), _count(0) {}
 
 PhoneBook::PhoneBook(PhoneBook const &phonebook):
-    _next(phonebook._next)
+    _next(phonebook._next), _count(phonebook._count) 
 {
     for(int i = 0; i < MAX; i++)
         this->_contact[i] = phonebook._contact[i];
 }
 
-PhoneBook::~PhoneBook(void)
-{	
-}
+PhoneBook::~PhoneBook(void) {}
 
 PhoneBook   &PhoneBook::operator=(PhoneBook const &phonebook)
 {

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:28:19 by hsliu             #+#    #+#             */
-/*   Updated: 2023/03/02 22:07:44 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 16:26:06 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ class   PhoneBook
     private:
         Contact	_contact[MAX];
         int		_next;
-		int		_count; //the total number of contact
+		int		_count;
 		static	std::string	ft_trunc_str(std::string str);
-
 };
 
 #endif

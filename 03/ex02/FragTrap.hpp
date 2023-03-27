@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:18:42 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/09 12:31:35 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:51:59 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class FragTrap : public ClapTrap
 		FragTrap(void);
 		FragTrap(std::string name);
 		FragTrap(FragTrap const &Frag);
-		~FragTrap(void);
+		virtual ~FragTrap(void);
 		
 		virtual void	attack(const std::string& target);
 		void			highFivesGuys(void);

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:30:48 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 16:33:59 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:08:11 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ Weapon::~Weapon(void)
 
 Weapon	&Weapon::operator=(Weapon const &weapon)
 {
+	std::cout << "operator= in weapon class\n";
 	this->_type = weapon._type;
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:58:12 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 17:19:29 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:07:04 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ class HumanB
 {
 	public:
 		HumanB(std::string name);
-		HumanB(HumanB const &human);
 		~HumanB(void);
 
-		HumanB			&operator=(HumanB const &human);
 		void			setName(std::string name);
 		void			setWeapon(Weapon &weapon);
 		std::string		getName(void) const;

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 16:38:11 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/07 10:19:32 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:25:55 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 #include <iostream>
 #include <map>
 
-Harl::Harl(void)
-	:func_p(&Harl::other)
-{
-}
+Harl::Harl(void) :func_p(&Harl::other) {}
 
-Harl::~Harl(void)
-{
-}
+Harl::~Harl(void) {}
 
 void	Harl::complain(std::string level)
 {

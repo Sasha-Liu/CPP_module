@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:45:26 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/05 14:32:18 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/27 17:22:21 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	ft_open_file(std::ifstream &fin, std::ofstream &fout, char *filename)
 	fin.open(file1.c_str(), std::fstream::in);
 	if (!fin.is_open())
 	{
-		fin.close();
 		std::cerr << "Open fails\n";
 		return (1);
 	}
@@ -56,7 +55,6 @@ int	ft_open_file(std::ifstream &fin, std::ofstream &fout, char *filename)
 	if (!fout.is_open())
 	{
 		fin.close();
-		fout.close();
 		std::cerr << "Open fails\n";
 		return (1);
 	}
@@ -66,14 +64,17 @@ int	ft_open_file(std::ifstream &fin, std::ofstream &fout, char *filename)
 void	ft_replace(std::string &line, std::string &s1, std::string &s2)
 {
 	size_t	s1_len;
+	size_t	s2_len;
 
 	s1_len = s1.length();
+	s2_len = s2.length();
 	for (size_t i = 0; i < line.length(); i++)
 	{
 		if (line.compare(i, s1_len, s1) == 0)
 		{
 			line.erase(i, s1_len);
 			line.insert(i, s2);
+			i += s2_len;
 		}
 	}
 }

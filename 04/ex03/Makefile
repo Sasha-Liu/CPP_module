@@ -6,7 +6,7 @@
 #    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 15:31:43 by hsliu             #+#    #+#              #
-#    Updated: 2023/03/29 16:13:31 by sasha            ###   ########.fr        #
+#    Updated: 2023/03/29 16:28:36 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIST_SRC	=	main.cpp AMateria.Class.cpp Cure.Class.cpp Ice.Class.cpp \
 LIST_OBJ	=	$(LIST_SRC:.cpp=.o) 
 
 LIST_INC	=	AMateria.Class.hpp Character.Class.hpp Cure.Class.hpp \
-				Ice.Class.hpp ICharater.Class.hpp IMateriaSource.Class.hpp \
+				Ice.Class.hpp ICharacter.Class.hpp IMateriaSource.Class.hpp \
 				MateriaSource.Class.hpp
 
 SRC		=	$(addprefix $(SRC_DIR), $(LIST_SRC))

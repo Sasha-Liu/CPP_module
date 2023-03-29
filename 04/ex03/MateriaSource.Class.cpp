@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:47:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 16:04:50 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/29 16:38:55 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ MateriaSource		&MateriaSource::operator=(MateriaSource const &src)
 		this->_memory[i] = NULL;
 		this->_memory[i] = src._memory[i].clone;
 	}
+	return (*this);
 }
 
 void 	MateriaSource::learnMateria(AMateria *m)
@@ -70,4 +71,5 @@ AMateria*	MateriaSource::createMateria(std::string const &type)
 			return (this->_memory[i].clone); 
 		}
 	}
+	return (NULL);
 }

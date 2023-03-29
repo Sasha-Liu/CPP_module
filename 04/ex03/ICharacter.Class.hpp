@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:56:32 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 15:15:31 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/29 16:31:43 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define ICHARACTER_CLASS_HPP
 
 # include <string>
+# include "AMateria.Class.hpp"
+
+class AMateria;
 
 class ICharacter
 {

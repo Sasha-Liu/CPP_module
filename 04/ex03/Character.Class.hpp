@@ -6,12 +6,14 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:00:25 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 15:39:49 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/29 16:54:17 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_CLASS_HPP
 # define CHARACTER_CLASS_HPP
+
+# include "ICharacter.Class.hpp"
 
 class Character : public ICharacter
 {

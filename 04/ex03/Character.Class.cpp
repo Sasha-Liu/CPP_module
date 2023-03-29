@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:16:00 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 15:42:25 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/29 17:01:44 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Character::Character(Character const &john)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		this->_inventory[i] = john._inventory[i].clone;
+		this->_inventory[i] = john._inventory[i]->clone;
 	}
 }
 
@@ -47,15 +47,16 @@ Character::~Character(void)
 	}
 }
 
-Character	&operator=(Character const &john)
+Character	&Character::operator=(Character const &john)
 {
 	this->_name = john._name;
 	for (int i = 0; i < 4; i++)
 	{
 		delete this->_inventory[i];
 		this->_inventory[i] = NULL;
-		this->_inventory[i] = john._inventory[i].clone;
+		this->_inventory[i] = john._inventory[i]->clone;
 	}
+	return (*this);
 }
 
 std::string const	&Character::getName(void) const

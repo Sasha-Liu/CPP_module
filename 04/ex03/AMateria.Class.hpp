@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:18:57 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/14 11:33:14 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/29 16:47:58 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <string>
 # include <iostream>
+# include "ICharacter.Class.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -23,7 +26,7 @@ class AMateria
 		AMateria(AMateria const &materia);
 		virtual	~AMateria(void);
 
-		AMateria			&operator=(AMateria const &materia);
+//		AMateria			&operator=(AMateria const &materia);
 		std::string const	&getType(void) const;
 		virtual AMateria	*clone(void) = 0;
 		virtual void		use(ICharacter &target);		

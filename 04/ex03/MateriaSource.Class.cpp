@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:47:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 16:38:55 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/29 20:57:13 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		this->_memory[i] = src._memory[i].clone;
+		this->_memory[i] = src._memory[i]->clone();
 	}
 }
 
@@ -45,7 +45,7 @@ MateriaSource		&MateriaSource::operator=(MateriaSource const &src)
 	{
 		delete this->_memory[i];
 		this->_memory[i] = NULL;
-		this->_memory[i] = src._memory[i].clone;
+		this->_memory[i] = src._memory[i]->clone();
 	}
 	return (*this);
 }
@@ -56,7 +56,7 @@ void 	MateriaSource::learnMateria(AMateria *m)
 	{
 		if (this->_memory[i] == NULL)
 		{
-			this->_memory[i] = m.clone;	
+			this->_memory[i] = m;
 			return ;
 		}
 	}
@@ -66,9 +66,9 @@ AMateria*	MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_memory[i] && this->_memory[i].getName == type)
+		if (this->_memory[i] && this->_memory[i]->getType() == type)
 		{
-			return (this->_memory[i].clone); 
+			return (this->_memory[i]->clone());
 		}
 	}
 	return (NULL);

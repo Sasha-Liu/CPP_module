@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:16:00 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 20:55:15 by sasha            ###   ########.fr       */
+/*   Updated: 2023/03/30 12:15:07 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,21 @@ void	Character::equip(AMateria *m)
 			return ;
 		}
 	}
+	std::cout << "Inventory full\n";
 }
 
 void	Character::unequip(int idx)
 {
-	delete this->_inventory[idx];
 	this->_inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter &target)
 {
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << idx << " out of bound\n";
+		return ;
+	}
 	if (this->_inventory[idx] == NULL)
 	{
 		std::cout << "Inventory[ " << idx << " ] empty\n";

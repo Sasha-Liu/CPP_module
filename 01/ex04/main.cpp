@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:45:26 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/27 17:22:21 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 12:30:13 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,10 @@ int	main(int argc, char **argv)
 	{
 		std::getline(fin, line, '\n');
 		ft_replace(line, s1, s2);
-		fout << line << "\n";
+		fout << line;
+		if (fin)
+			break ;
+		fout << "\n";
 	}
 	fin.close();
 	fout.close();

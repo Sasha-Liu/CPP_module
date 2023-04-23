@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:05:23 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/27 16:31:04 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 11:58:31 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	Zombie::set_name(std::string name)
 	this->_name = name;
 }
 
-std::string	Zombie::get_name(void) const
+std::string const	&Zombie::get_name(void) const
 {
 	return (this->_name);
 }  

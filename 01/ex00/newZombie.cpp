@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:56:21 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/27 16:32:06 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 11:57:43 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ Zombie*	newZombie(std::string name)
 {
 	Zombie	*zombie;
 
-	zombie = new Zombie;
-	zombie->set_name(name);
+	zombie = new Zombie(name);
 	return (zombie);
 }

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:59:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/27 17:07:08 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 12:08:39 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,16 @@ HumanB::~HumanB(void)
 			<< " destroyed\n";
 }
 
-void	HumanB::attack(void)
+void	HumanB::attack(void) const
 {
-	std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	if (this->_weapon)
+	{
+		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	}
+	else
+	{
+		std::cout << this->_name << " attacks with bare hands." << std::endl;
+	}
 }
 
 void		HumanB::setName(std::string name)
@@ -45,7 +52,7 @@ void		HumanB::setWeapon(Weapon &weapon)
 	this->_weapon = &weapon;
 }
 
-std::string	HumanB::getName(void) const
+std::string const	&HumanB::getName(void) const
 {
 	return (this->_name);
 }

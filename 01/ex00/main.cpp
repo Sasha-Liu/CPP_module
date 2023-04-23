@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:04:05 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 14:31:12 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 12:00:30 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(void)
 	Zombie	*zombie3 = newZombie("Mike");
 	Zombie	zombie4(zombie1);
 
+	std::cout << std::endl;
 	zombie1.announce();
 	zombie2.announce();
 	zombie3->announce();
@@ -45,6 +46,7 @@ int	main(void)
 
 	std::cout << "\nrandomChump(\"Steve\")\n";
 	randomChump("Steve");
+	std::cout << std::endl;
 
 	std::cout << "delete zombie3\n";
 	delete zombie3;

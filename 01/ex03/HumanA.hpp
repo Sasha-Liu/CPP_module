@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:40:53 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/27 17:05:41 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 12:07:29 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class HumanA
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA(void);
 
-		void			setName(std::string name);
-		void			setWeapon(std::string type);
-		std::string		getName(void) const;
-		Weapon const	&getWeapon(void) const;
-		void			attack(void);
+		void				setName(std::string name);
+		void				setWeapon(std::string type);
+		std::string	const	&getName(void) const;
+		Weapon const		&getWeapon(void) const;
+		void				attack(void) const;
 
 	private:
 		std::string	_name;

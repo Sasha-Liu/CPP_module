@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:18:20 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/03 16:31:41 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 12:03:29 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Weapon
 		Weapon(std::string weapon);
 		~Weapon(void);
 
-		Weapon		&operator=(Weapon const &weapon);
-		void		setType(std::string type);
-		std::string	getType(void) const;
+		Weapon				&operator=(Weapon const &weapon);
+		void				setType(std::string type);
+		std::string const	&getType(void) const;
 
 	private:
 		std::string	_type;

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:47:14 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/27 17:05:38 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/23 12:08:11 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ HumanA::~HumanA(void)
 			<< " destroyed\n";
 }
 
-void	HumanA::attack(void)
+void	HumanA::attack(void) const
 {
 	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
 }
@@ -45,7 +45,7 @@ void		HumanA::setWeapon(std::string type)
 	this->_weapon.setType(type);
 }
 
-std::string	HumanA::getName(void) const
+std::string const	&HumanA::getName(void) const
 {
 	return (this->_name);
 }

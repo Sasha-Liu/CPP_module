@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 16:38:11 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/27 17:23:17 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/18 17:18:07 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,26 @@ Harl::~Harl(void) {}
 void	Harl::complain(std::string level)
 {
 	int	lev;
+	std::string	str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
-	lev = 0;
-	if (level.compare("DEBUG") == 0)
-		lev = 1;
-	else if (level.compare("INFO") == 0)
-		lev = 2;
-	else if (level.compare("WARNING") == 0)
-		lev = 3;
-	else if (level.compare("ERROR") == 0)
-		lev = 4;
+	lev = -1;
+	for (int i = 0; i < 4; i++)
+	{
+		if (str[i] == level)
+			lev = i;
+	}
 	switch(lev)
 	{
-		case 1:
+		case 0:
 			func_p = &Harl::debug;
 			break ;
-		case 2:
+		case 1:
 			func_p = &Harl::info;
 			break ;
-		case 3:
+		case 2:
 			func_p = &Harl::warning;
 			break ;
-		case 4:
+		case 3:
 			func_p = &Harl::error;
 			break;
 		default:

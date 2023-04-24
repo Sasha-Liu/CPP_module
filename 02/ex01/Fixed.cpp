@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:37 by sasha             #+#    #+#             */
-/*   Updated: 2023/04/24 21:16:43 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/24 21:33:14 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		Fixed::toInt(void) const
 {
 	float	num;
 	
-	num = (float)this->_raw / (float)256;
+	num = (float)this->_raw / 256.0f;
 	return ((int)roundf(num));
 }
 

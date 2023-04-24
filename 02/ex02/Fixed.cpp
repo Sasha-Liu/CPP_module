@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:37 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/07 14:27:28 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/24 21:31:46 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	Fixed::precision = 8;
 
 Fixed::Fixed(void)
-	:raw(0)
+	:_raw(0)
 {
 	std::cout << "Default constructor called\n";
 }
@@ -25,7 +25,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(int const num)
 {
 	std::cout << "Int constructor called\n";
-	this->raw = num << Fixed::precision;
+	this->_raw = num << Fixed::precision;
 }
 
 
@@ -35,12 +35,12 @@ Fixed::Fixed(float const f)
 
 	std::cout << "Float constructor called\n";
 	num = (int)roundf(f * 256);
-	this->raw = num;
+	this->_raw = num;
 }
 
 
 Fixed::Fixed(Fixed const &fix)
-	:raw(fix.raw)
+	:_raw(fix._raw)
 {
 	std::cout << "Copy constructor called\n";
 }
@@ -53,33 +53,36 @@ Fixed::~Fixed(void)
 Fixed	&Fixed::operator=(Fixed const &fix)
 {
 	std::cout << "Copy assignment operator called\n";
-	this->raw = fix.raw;
+	this->_raw = fix._raw;
 	return (*this);
 }
 
 int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called\n";
-	return (this->raw);
+	return (this->_raw);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called\n";
-	this->raw = raw;
+	this->_raw = raw;
 }
 
 float	Fixed::toFloat( void ) const
 {
 	float	ret;
 
-	ret = (float)this->raw / (float)256;
+	ret = (float)this->_raw / (float)256;
 	return (ret);
 }
 
 int		Fixed::toInt(void) const
 {
-	return (this->raw >> Fixed::precision);
+	float	num;
+	
+	num = (float)this->_raw / 256.0f;
+	return ((int)roundf(num));
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fix)
@@ -90,42 +93,42 @@ std::ostream& operator<<(std::ostream &out, const Fixed &fix)
 
 bool	Fixed::operator>(Fixed const &fix) const
 {
-	if (this->raw > fix.raw)
+	if (this->_raw > fix._raw)
 		return (1);
 	return (0);
 }
 
 bool	Fixed::operator<(Fixed const &fix) const
 {
-	if (this->raw < fix.raw)
+	if (this->_raw < fix._raw)
 		return (1);
 	return (0);
 }
 
 bool	Fixed::operator>=(Fixed const &fix) const
 {
-	if (this->raw >= fix.raw)
+	if (this->_raw >= fix._raw)
 		return (1);
 	return (0);
 }
 
 bool	Fixed::operator<=(Fixed const &fix) const
 {
-	if (this->raw <= fix.raw)
+	if (this->_raw <= fix._raw)
 		return (1);
 	return (0);
 }
 
 bool	Fixed::operator==(Fixed const &fix) const
 {
-	if (this->raw == fix.raw)
+	if (this->_raw == fix._raw)
 		return (1);
 	return (0);
 }
 
 bool	Fixed::operator!=(Fixed const &fix) const
 {
-	if (this->raw != fix.raw)
+	if (this->_raw != fix._raw)
 		return (1);
 	return (0);
 }
@@ -167,7 +170,7 @@ Fixed	Fixed::operator/(Fixed const &fix) const
 
 Fixed	&Fixed::operator++(void)
 {
-	(this->raw)++;
+	(this->_raw)++;
 	return (*this);
 }
 
@@ -175,13 +178,13 @@ Fixed	Fixed::operator++(int)
 {
 	Fixed copy(*this);
 
-	(this->raw)++;
+	(this->_raw)++;
 	return (copy);
 }
 
 Fixed	&Fixed::operator--(void)
 {
-	(this->raw)--;
+	(this->_raw)--;
 	return (*this);
 }
 
@@ -189,7 +192,7 @@ Fixed	Fixed::operator--(int)
 {
 	Fixed copy(*this);
 
-	(this->raw)--;
+	(this->_raw)--;
 	return (copy);
 }
 

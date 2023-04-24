@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 11:14:35 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/24 21:24:50 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Fixed
 		void	setRawBits(int const raw);
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-		
+
 		bool	operator>(Fixed const &fix) const;
 		bool	operator<(Fixed const &fix) const;
 		bool	operator>=(Fixed const &fix) const;
@@ -53,7 +53,7 @@ class Fixed
 		static	Fixed const	&max(Fixed const &a, Fixed const &b);
 		
 	private:
-		int			raw;
+		int			_raw;
 		static int	precision;	
 };
 

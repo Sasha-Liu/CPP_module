@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 11:09:26 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/24 21:00:53 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Fixed
 		int		toInt( void ) const;
 		
 	private:
-		int			raw;
+		int			_raw;
 		static int	precision;	
 };
 

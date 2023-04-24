@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:35:37 by sasha             #+#    #+#             */
-/*   Updated: 2023/04/24 21:01:56 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/24 21:16:43 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ float	Fixed::toFloat( void ) const
 
 int		Fixed::toInt(void) const
 {
-	return (this->_raw >> Fixed::precision);
+	float	num;
+	
+	num = (float)this->_raw / (float)256;
+	return ((int)roundf(num));
 }
 
 std::ostream& operator<<(std::ostream &out, Fixed const &fix)

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.Class.hpp                                      :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 12:09:08 by sasha             #+#    #+#             */
-/*   Updated: 2023/04/27 15:15:45 by hsliu            ###   ########.fr       */
+/*   Created: 2023/04/27 13:10:49 by hsliu             #+#    #+#             */
+/*   Updated: 2023/04/27 13:15:38 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-# include "Animal.Class.hpp"
-# include "Brain.Class.hpp"
-
-class Dog : public Animal
+class Bureaucrat
 {
 	public:
-		Dog(void);
-		Dog(Dog const &dog);
-		~Dog(void);
-	
-		Dog					&operator=(Dog const &dog);
-		void				makeSound(void) const;
-		void				addIdea(std::string idea);
-		std::string	const	*getIdea(int index) const;
+		Bureaucrat(void);
+		Bureaucrat(Bureaucrat const &john);
+		~Bureaucrat(void);
 
+		Bureaucrat			&operator=(Bureaucrat const &john);
+		std::string const	&getName(void) const;
+		int					getGrade(void) const;
+		void				setGrade(int grade);
+		
 	private:
-		Brain				*_brain;
+		std::string const	_name;
+		int					_grade;
 };
 
 #endif

@@ -4,6 +4,9 @@ a.out
 #ignore every .o file
 *.o
 
+#ignore .vscode at root
+/.vscode
+
 #ignore executables
 phonebook
 bank_stuff

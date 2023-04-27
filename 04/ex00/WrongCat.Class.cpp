@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.Class.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:34:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 12:35:52 by sasha            ###   ########.fr       */
+/*   Updated: 2023/04/27 15:14:00 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ WrongCat::~WrongCat(void)
 	std::cout << "Dtor in WrongCat Class\n";
 }
 
+WrongCat	&WrongCat::operator=(WrongCat const &wrong)
+{
+	this->_type = wrong._type;
+	return (*this);
+}
 	
 void	WrongCat::makeSound(void) const
 {

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:53:59 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/10 15:11:23 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/01 11:53:34 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ Cat::~Cat(void)
 	std::cout << "Dtor in Cat Class\n";
 }
 
+Cat	&Cat::operator=(Cat const &cat)
+{
+	std::cout << "operator= in Cat Class\n";
+	this->_type = cat._type;
+	delete this->_brain;
+	this->_brain = new Brain(*(cat._brain));
+	return (*this);
+}
 	
 void	Cat::makeSound(void) const
 {

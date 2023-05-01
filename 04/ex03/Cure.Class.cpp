@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:35:33 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 16:51:38 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/01 12:21:43 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ Cure::Cure(void) :AMateria("cure") {}
 Cure::Cure(Cure const &cure) :AMateria(cure._type) {}
 
 Cure::~Cure(void) {}
+
+Cure	&Cure::operator=(Cure const &cure)
+{
+	this->_type = cure._type;
+	return (*this);
+}
 
 AMateria	*Cure::clone(void)
 {

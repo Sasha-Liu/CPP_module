@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:18:57 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 16:47:58 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/01 12:21:20 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ class AMateria
 		AMateria(AMateria const &materia);
 		virtual	~AMateria(void);
 
-//		AMateria			&operator=(AMateria const &materia);
+		AMateria			&operator=(AMateria const &materia);
 		std::string const	&getType(void) const;
 		virtual AMateria	*clone(void) = 0;
 		virtual void		use(ICharacter &target);		
 	
 	protected:
-		std::string const	_type;
+		std::string	_type;
 };
 
 #endif

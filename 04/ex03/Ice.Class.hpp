@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:35:44 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/14 11:42:14 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/01 12:14:17 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Ice : public AMateria
 		Ice(Ice const &ice);
 		~Ice(void);
 
+		Ice			&operator=(Ice const &ice);
 		AMateria	*clone(void);
 		void		use(ICharacter &target);
 };

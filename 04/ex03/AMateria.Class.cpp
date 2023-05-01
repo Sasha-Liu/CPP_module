@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:24:47 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/29 16:48:04 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/01 12:19:20 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ AMateria::AMateria(AMateria const &materia) :_type(materia._type) {}
 
 AMateria::~AMateria(void) {}
 
-// AMateria	&AMateria::operator=(AMateria const &materia)
-// {
-// 	this->_type = materia.getType();
-// 	return (*this);	
-// }
+AMateria	&AMateria::operator=(AMateria const &materia)
+{
+	this->_type = materia._type;
+	return (*this);	
+}
 
 std::string const	&AMateria::getType(void) const
 {

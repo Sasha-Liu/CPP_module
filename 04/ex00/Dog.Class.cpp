@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.Class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:10:08 by sasha             #+#    #+#             */
-/*   Updated: 2023/04/27 15:11:41 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/01 11:44:05 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Dog::~Dog(void)
 
 Dog		&Dog::operator=(Dog const &dog)
 {
+	std::cout << "operator= in Dog Class\n";
 	this->_type = dog._type;
 	return (*this);
 }

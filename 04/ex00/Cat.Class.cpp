@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.Class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:53:59 by sasha             #+#    #+#             */
-/*   Updated: 2023/04/27 15:10:12 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/01 11:43:38 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Cat::Cat(Cat const &cat)
 
 Cat		&Cat::operator=(Cat const &cat)
 {
+	std::cout << "operator= in Cat Class\n";
 	this->_type = cat._type;
 	return (*this);
 }

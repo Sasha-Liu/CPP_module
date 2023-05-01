@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:10:08 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/13 14:14:09 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/01 11:54:15 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ Dog::~Dog(void)
 	std::cout << "Dtor in Dog Class\n";
 }
 
+Dog	&Dog::operator=(Dog const &dog)
+{
+	std::cout << "operator= in Dog Class\n";
+	this->_type = dog._type;
+	delete this->_brain;
+	this->_brain = new Brain(*(dog._brain));
+	return (*this);
+}
 	
 void	Dog::makeSound(void) const
 {

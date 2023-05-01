@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:49:13 by sasha             #+#    #+#             */
-/*   Updated: 2023/03/13 14:38:38 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/01 11:59:41 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Cat : public Animal
 		Cat(Cat const &cat);
 		~Cat(void);
 
+		Cat					&operator=(Cat const &cat);
 		void				makeSound(void) const;
 		void				addIdea(std::string idea);
 		std::string	const	*getIdea(int index) const;

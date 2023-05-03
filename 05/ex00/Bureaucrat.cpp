@@ -6,16 +6,25 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:47:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/03 16:41:17 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/03 17:28:50 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Bureaucrat.hpp>
-# include <exception>
-# include <ostream> 
 
-class Bureaucrat::GradeTooHighException : public std::exception {};
-class Bureaucrat::GradeTooLowException : public std::exception {};
+class Bureaucrat::GradeTooHighException : public std::logic_error
+{
+	public:
+		GradeTooHighException(void) :logic_error("Grade too high") {};
+		GradeTooHighException(std::string const &error) :logic_error(error) {};
+};
+
+class Bureaucrat::GradeTooLowException : public std::logic_error
+{
+	public:
+		GradeTooLowException(void) :logic_error("Grade too low") {};
+		GradeTooLowException(std::string const &error) :logic_error(error) {};
+};
 
 Bureaucrat::Bureaucrat(void)
 	:_name("Akaky Akakievich Bashmachkin"), _grade(150) {};
@@ -34,7 +43,6 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade)
 }
 	
 Bureaucrat::~Bureaucrat(void) {};
-
 
 /*	the name is not copied since it's constant	*/
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &john)
@@ -55,9 +63,9 @@ int	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::setGrade(int grade)
 {
-	if (this->_grade > 150)
+	if (grade > 150)
 		throw GradeTooLowException();
-	if (this->_grade < 1)
+	if (grade < 1)
 		throw GradeTooHighException();
 	this->_grade = grade;
 }

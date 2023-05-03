@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+         #
+#    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 13:10:00 by hsliu             #+#    #+#              #
-#    Updated: 2023/04/27 13:10:24 by hsliu            ###   ########.fr        #
+#    Updated: 2023/05/03 15:50:34 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	
+NAME	=	bureaucrat
 
 MAKE	=	make
 
@@ -20,11 +20,11 @@ OBJ_DIR	=	./.obj/
 
 INC_DIR	=	./
 
-LIST_SRC	=	
+LIST_SRC	=	Bureaucrat.cpp main.cpp
 
 LIST_OBJ	=	$(LIST_SRC:.cpp=.o) 
 
-LIST_INC	=	 
+LIST_INC	=	 Bureaucrat.hpp
 
 SRC		=	$(addprefix $(SRC_DIR), $(LIST_SRC))
 

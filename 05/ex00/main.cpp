@@ -3,10 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:10:33 by hsliu             #+#    #+#             */
-/*   Updated: 2023/04/27 13:10:34 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/03 16:40:37 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <Bureaucrat.hpp>
+#include <iostream>
+
+int	main(void)
+{
+	Bureaucrat	john("John", 100);
+
+	std::cout << john; 
+
+	
+}

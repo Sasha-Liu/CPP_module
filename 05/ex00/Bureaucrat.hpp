@@ -3,31 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:10:49 by hsliu             #+#    #+#             */
-/*   Updated: 2023/04/27 13:15:38 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/03 16:41:42 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# include <exception>
+# include <ostream> 
+
 class Bureaucrat
 {
 	public:
 		Bureaucrat(void);
 		Bureaucrat(Bureaucrat const &john);
+		Bureaucrat(std::string const &name, int grade);
 		~Bureaucrat(void);
 
 		Bureaucrat			&operator=(Bureaucrat const &john);
 		std::string const	&getName(void) const;
 		int					getGrade(void) const;
 		void				setGrade(int grade);
+		void				promote(void);
+		void				demote(void);
+
+		class GradeTooHighException;
+		class GradeTooLowException;
 		
 	private:
 		std::string const	_name;
 		int					_grade;
 };
+
+std::ostream		&operator<<(std::ostream &out, Bureaucrat const &john);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:09:51 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 16:45:56 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 19:05:22 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const *form);
 		void	beExecuted(std::string const &target) const;
-
-	private:
-
-
-
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:09:51 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 19:05:22 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 20:19:05 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
 	public:
 		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(std::string const &target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &form);
 		~ShrubberyCreationForm(void);
 
+		void	beExecuted(void) const;
+		std::string const	&getTarget(void) const;
+		void				setTarget(std::string const &target);
+	
+	private:
 		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const *form);
-		void	beExecuted(std::string const &target) const;
+		std::string				_target;
 };
 
 

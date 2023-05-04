@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:04:24 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 13:11:55 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/04 20:20:05 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class AForm
 		void				beSigned(Bureaucrat const &john);
 		
 		void				execute(Bureaucrat const &executor) const;
-		virtual void		beExecuted(std::string const &tartget) const = 0;
+		virtual void		beExecuted(void) const = 0;
 
 		class	GradeTooHighException;
 		class	GradeTooLowException;

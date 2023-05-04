@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:02:43 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 16:09:02 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 20:18:35 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ class	AForm::GradeTooLowException : public std::logic_error
 class	AForm::FormNotSigned : public std::logic_error
 {
 	public:	
-		GradeTooLowException(void)
+		FormNotSigned(void)
 			:logic_error("EXECPTION: Form unsigned") {}
 			
-		GradeTooLowException(std::string const &error)
+		FormNotSigned(std::string const &error)
 			:logic_error(error) {}
 };
 
@@ -117,7 +117,7 @@ void	AForm::execute(Bureaucrat const &executor) const
 	{
 		throw GradeTooLowException();
 	}
-	
+	this->beExecuted();
 }
 
 

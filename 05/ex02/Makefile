@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+         #
+#    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 13:10:00 by hsliu             #+#    #+#              #
-#    Updated: 2023/05/04 13:05:30 by hsliu            ###   ########.fr        #
+#    Updated: 2023/05/04 19:48:09 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	form_up
+NAME	=	paper_work
 
 MAKE	=	make
 
@@ -20,11 +20,11 @@ OBJ_DIR	=	./.obj/
 
 INC_DIR	=	./
 
-LIST_SRC	=	Bureaucrat.cpp AForm.cpp main.cpp
+LIST_SRC	=	Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp
 
 LIST_OBJ	=	$(LIST_SRC:.cpp=.o) 
 
-LIST_INC	=	 Bureaucrat.hpp AForm.hpp
+LIST_INC	=	 Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
 
 SRC		=	$(addprefix $(SRC_DIR), $(LIST_SRC))
 

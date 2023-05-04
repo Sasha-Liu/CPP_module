@@ -6,7 +6,7 @@
 #    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 13:10:00 by hsliu             #+#    #+#              #
-#    Updated: 2023/05/04 21:18:15 by sasha            ###   ########.fr        #
+#    Updated: 2023/05/04 21:44:06 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,12 @@ OBJ_DIR	=	./.obj/
 INC_DIR	=	./
 
 LIST_SRC	=	Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp RobotomyRequestForm.cpp
 
 LIST_OBJ	=	$(LIST_SRC:.cpp=.o) 
 
 LIST_INC	=	 Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp \
-				PresidentialPardonForm.hpp
+				PresidentialPardonForm.hpp RobotomyRequestForm.hpp
 
 SRC		=	$(addprefix $(SRC_DIR), $(LIST_SRC))
 

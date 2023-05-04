@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:25:04 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 21:27:06 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 21:49:41 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main(void)
 {
@@ -91,6 +92,37 @@ int	main(void)
 	}
 		
 	/*	robot test	*/
+	std::cout << "######   robot test   ######" << std::endl;
+	RobotomyRequestForm	form5("Joe");
+	RobotomyRequestForm	form6(form5);
 
+	std::cout << form5 << form6 << john;
+
+	form5.beSigned(john);
+	try {
+		form6.beSigned(akaky);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << form5;
+	
+	form5.execute(john);
+	try {
+		form6.execute(akaky);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	form6.beSigned(john);
+	try {
+		form6.execute(akaky);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 }

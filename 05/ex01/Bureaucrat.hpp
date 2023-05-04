@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:10:49 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/03 17:24:53 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 11:02:17 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdexcept>
 # include <ostream> 
 # include <string>
+
+class Form;
 
 class Bureaucrat
 {
@@ -32,6 +34,8 @@ class Bureaucrat
 		void				setGrade(int grade);
 		void				promote(void);
 		void				demote(void);
+		
+		// void				signForm(Form &form) const;
 
 		class GradeTooHighException;
 		class GradeTooLowException;

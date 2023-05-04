@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:04:24 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/03 18:23:09 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 11:11:14 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Form
 	public:
 		Form(void);
 		Form(Form const &form);
-		Form(std::string name, int sign_grade, int exec_grade);
+		Form(std::string const &name, int sign_grade, int exec_grade);
 		~Form(void);
 
 		Form				&operator=(Form const &form);

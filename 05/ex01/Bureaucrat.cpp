@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:47:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/03 17:28:50 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 11:02:15 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ void	Bureaucrat::demote(void)
 		throw GradeTooLowException();
 	this->_grade--;
 }
+
+// void	Bureaucrat::signForm(Form &form) const
+// {
+		
+// }
 
 std::ostream		&operator<<(std::ostream &out, Bureaucrat const &john)
 {

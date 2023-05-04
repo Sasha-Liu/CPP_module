@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:10:49 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 11:02:17 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/04 12:54:18 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 # include <exception>
 # include <stdexcept>
-# include <ostream> 
+# include <iostream> 
 # include <string>
-
-class Form;
 
 class Bureaucrat
 {
@@ -35,7 +33,7 @@ class Bureaucrat
 		void				promote(void);
 		void				demote(void);
 		
-		// void				signForm(Form &form) const;
+		void	signForm(int sign, std::string const &name) const;
 
 		class GradeTooHighException;
 		class GradeTooLowException;

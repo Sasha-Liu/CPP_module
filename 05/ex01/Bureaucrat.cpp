@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:47:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 11:54:35 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/04 12:54:09 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,14 @@ void	Bureaucrat::demote(void)
 	this->_grade--;
 }
 
-// void	Bureaucrat::signForm(Form &form) const
-// {
-		
-// }
+void	Bureaucrat::signForm(int sign, std::string const &name) const
+{
+	if (sign)
+		std::cout << this->_name << " signed <" << name << ">\n"; 
+	else
+		std::cout << this->_name << " couldn't sign <" << name
+			<< "> because: " << "grade too low\n"; 
+}
 
 std::ostream		&operator<<(std::ostream &out, Bureaucrat const &john)
 {

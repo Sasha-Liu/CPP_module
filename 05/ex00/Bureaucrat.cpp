@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:47:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/03 17:28:50 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 11:54:45 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 class Bureaucrat::GradeTooHighException : public std::logic_error
 {
 	public:
-		GradeTooHighException(void) :logic_error("Grade too high") {};
+		GradeTooHighException(void) :logic_error("EXECPTION: Grade too high") {};
 		GradeTooHighException(std::string const &error) :logic_error(error) {};
 };
 
 class Bureaucrat::GradeTooLowException : public std::logic_error
 {
 	public:
-		GradeTooLowException(void) :logic_error("Grade too low") {};
+		GradeTooLowException(void) :logic_error("EXECPTION: Grade too low") {};
 		GradeTooLowException(std::string const &error) :logic_error(error) {};
 };
 

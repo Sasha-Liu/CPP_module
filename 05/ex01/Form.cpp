@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:02:43 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 11:35:51 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/04 11:54:22 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ class	Form::GradeTooHighException : public std::logic_error
 {
 	public:
 		GradeTooHighException(void)
-			:logic_error("Grade too high") {}
+			:logic_error("EXECPTION: Grade too high") {}
 			
 		GradeTooHighException(std::string const &error)
 			:logic_error(error) {}
@@ -26,7 +26,7 @@ class	Form::GradeTooLowException : public std::logic_error
 {
 	public:	
 		GradeTooLowException(void)
-			:logic_error("Grade too low") {}
+			:logic_error("EXECPTION: Grade too low") {}
 			
 		GradeTooLowException(std::string const &error)
 			:logic_error(error) {}
@@ -84,14 +84,14 @@ void	Form::beSigned(Bureaucrat const &john)
 {
 	if (this->_signed)
 	{
-		std::cout << "Form: " << this->_name << " is already signed\n";
+		std::cout << "Form: <" << this->_name << "> is already signed\n";
 		return ;
 	}	
 	if (john.getGrade() <= this->_sign_grade)
 	{
 		this->_signed = true;
-		std:: cout << "Form " << this->_name
-			<< " is signed by " << john.getName() << std::endl;
+		std:: cout << "Form: <" << this->_name
+			<< "> is signed by " << john.getName() << std::endl;
 		return ;
 	}
 	throw GradeTooLowException();
@@ -99,7 +99,7 @@ void	Form::beSigned(Bureaucrat const &john)
 
 std::ostream	&operator<<(std::ostream &out, Form const &form)
 {
-	out << "Form:\n name: " << form.getName() << std::endl;
+	out << "Form:\n name: <" << form.getName() << ">\n";
 	if (form.isSigned())
 		out << " SIGNED\n";
 	else

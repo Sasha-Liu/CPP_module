@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:09:51 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 20:19:05 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/04 20:52:39 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class ShrubberyCreationForm : public AForm
 {
 	public:
-		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string const &target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &form);
 		~ShrubberyCreationForm(void);
@@ -29,7 +28,8 @@ class ShrubberyCreationForm : public AForm
 		void				setTarget(std::string const &target);
 	
 	private:
-		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const *form);
+		ShrubberyCreationForm(void);
+		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &form);
 		std::string				_target;
 };
 

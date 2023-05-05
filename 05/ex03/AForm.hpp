@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:04:24 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/05 12:27:39 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/05 13:30:32 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AForm
 		AForm(void);
 		AForm(AForm const &form);
 		AForm(std::string const &name, int sign_grade, int exec_grade);
-		~AForm(void);
+		virtual ~AForm(void);
 
 		AForm				&operator=(AForm const &form);
 		std::string const	&getName(void) const;

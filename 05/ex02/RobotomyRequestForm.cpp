@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:35:29 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 21:52:32 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/05 12:50:11 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	RobotomyRequestForm::beExecuted(void) const
 {
 	int	random;
 
+	srand(time(0));
 	random = rand();
 	if (random % 2)
 	{

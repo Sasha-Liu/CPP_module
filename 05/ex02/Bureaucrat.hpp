@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:10:49 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 12:54:18 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/05 12:37:45 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdexcept>
 # include <iostream> 
 # include <string>
+# include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -33,7 +36,8 @@ class Bureaucrat
 		void				promote(void);
 		void				demote(void);
 		
-		void	signForm(int sign, std::string const &name) const;
+		void	signForm(AForm &Aform) const;
+		void	executeForm(AForm const &form) const;
 
 		class GradeTooHighException;
 		class GradeTooLowException;

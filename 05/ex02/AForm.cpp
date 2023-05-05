@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:02:43 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 20:18:35 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/05 12:32:09 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ class	AForm::GradeTooLowException : public std::logic_error
 			:logic_error(error) {}
 };
 
-class	AForm::FormNotSigned : public std::logic_error
+class	AForm::FormNotSignedException : public std::logic_error
 {
 	public:	
-		FormNotSigned(void)
+		FormNotSignedException(void)
 			:logic_error("EXECPTION: Form unsigned") {}
 			
-		FormNotSigned(std::string const &error)
+		FormNotSignedException(std::string const &error)
 			:logic_error(error) {}
 };
 
@@ -94,16 +94,16 @@ void	AForm::beSigned(Bureaucrat const &john)
 {
 	if (this->_signed)
 	{
-		std::cout << "AForm: <" << this->_name << "> is already signed\n";
+		std::cout << "Form: <" << this->_name << "> is already signed\n";
 		return ;
 	}	
 	if (john.getGrade() <= this->_sign_grade)
 	{
 		this->_signed = true;
-		john.signForm(true, this->_name);
+		std::cout << "Form: <" << this->_name << "> is signed by "
+			<< john.getName() << std::endl;
 		return ;
 	}
-	john.signForm(false, this->_name);
 	throw GradeTooLowException();
 }
 
@@ -111,7 +111,7 @@ void	AForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->_signed)
 	{
-		throw FormNotSigned();
+		throw FormNotSignedException();
 	}
 	if (executor.getGrade() > this->_exec_grade)
 	{

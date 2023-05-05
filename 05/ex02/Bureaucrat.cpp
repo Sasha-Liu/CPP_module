@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:47:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 12:54:09 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/05 12:44:41 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,30 @@ void	Bureaucrat::demote(void)
 	this->_grade--;
 }
 
-void	Bureaucrat::signForm(int sign, std::string const &name) const
+void	Bureaucrat::signForm(AForm &form) const
 {
-	if (sign)
-		std::cout << this->_name << " signed <" << name << ">\n"; 
-	else
-		std::cout << this->_name << " couldn't sign <" << name
-			<< "> because: " << "grade too low\n"; 
+	try {
+		form.beSigned(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " cannot sign Form <" << form.getName()
+			<< "> because: " << e.what() << std::endl; 
+	}
 }
+
+void	Bureaucrat::executeForm(AForm const &form) const
+{
+	try {
+		form.execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " cannot execute Form <" << form.getName()
+			<< "> because: " << e.what() << std::endl;
+	}
+}
+
 
 std::ostream		&operator<<(std::ostream &out, Bureaucrat const &john)
 {

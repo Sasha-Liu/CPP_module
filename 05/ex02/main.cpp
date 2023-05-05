@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:25:04 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 21:49:41 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/05 12:45:06 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ int	main(void)
 	
 	ShrubberyCreationForm	form1("home");
 	ShrubberyCreationForm	form2(form1);
-	// ShrubberyCreationForm	form3;
 	
 	Bureaucrat				john("John", 1);
 	Bureaucrat				akaky;
 
-	std::cout << form1 << form2 << john;
-	//form1 = form2; //operator = is private
+	std::cout << form1 << form2 << john << std::endl;
 
 	form1.beSigned(john);
 	try {
@@ -98,9 +96,9 @@ int	main(void)
 
 	std::cout << form5 << form6 << john;
 
-	form5.beSigned(john);
+	john.signForm(form5);
 	try {
-		form6.beSigned(akaky);
+		akaky.signForm(form6);
 	}
 	catch (std::exception &e)
 	{
@@ -108,17 +106,17 @@ int	main(void)
 	}
 	std::cout << form5;
 	
-	form5.execute(john);
+	john.executeForm(form5);
 	try {
-		form6.execute(akaky);
+		akaky.executeForm(form6);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	form6.beSigned(john);
+	john.signForm(form6);
 	try {
-		form6.execute(akaky);
+		akaky.executeForm(form6);
 	}
 	catch (std::exception &e)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 19:02:45 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 20:28:27 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/05 12:55:30 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ void	ShrubberyCreationForm::beExecuted(void) const
 	out << "    +++++++++++++++++++++++++++++               " << std::endl;
 	out << "  ++++++++###+++###++++++++++++++++             " << std::endl;	
 	out << "    +++++++####/++++##+++/###+++              * " << std::endl;
-	out << "      ++++++++++++######| /##++++               " << std::endl;
-	out << "    ++++++++############//#++++       *         " << std::endl;
+	out << "      ++++++++++++######|/##+++++               " << std::endl;
+	out << "    ++++++++###########//+#++++       *         " << std::endl;
 	out << "   +++++++++++| /###\\\\//##+++++++               " << std::endl;
 	out << "  +++++++###+++\\\\###//#++++++++                 " << std::endl;
-	out << "    ++++|+++|++ \\\\+//+++++      *  +===========+" << std::endl;
+	out << "       +|+++|++ \\\\+//+++++      *  +===========+" << std::endl;
 	out << "   *    |   |    \\\\\\\\              | shruberry |" << std::endl;
 	out << "        |   |     \\\\\\\\             +===========+" << std::endl;
-	out << "      * |===|     /||||         *        ||     " << std::endl;
-	out << "  *              //\\\\\\\\      *        *  ||     " << std::endl;
+	out << "      * |===|     /|||          *       ||      " << std::endl;
+	out << "  *              //\\\\\\\\      *       *  ||      " << std::endl;
 	out << "    MMMMMMMMMMMM//. .\\\\MMMMMMMMMMMMMMMMMMMMMMM  " << std::endl;
 	out << "           MMMMMMMMMMMMMMMMMMMMMMMMM            " << std::endl;
 	out.close();

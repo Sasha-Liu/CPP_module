@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:04:24 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 20:20:05 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/05 12:27:39 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdexcept>
 # include <iostream>
 # include <string>
+
+class Bureaucrat;
 
 class AForm
 {
@@ -38,7 +40,7 @@ class AForm
 
 		class	GradeTooHighException;
 		class	GradeTooLowException;
-		class	FormNotSigned;
+		class	FormNotSignedException;
 
 	private:
 		std::string const	_name;

@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:04:24 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 11:11:14 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/05 11:36:25 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdexcept>
 # include <iostream>
 # include <string>
+
+class Bureaucrat;
 
 class Form
 {

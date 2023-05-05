@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:02:43 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/04 12:54:48 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/05 11:45:08 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ void	Form::beSigned(Bureaucrat const &john)
 	if (john.getGrade() <= this->_sign_grade)
 	{
 		this->_signed = true;
-		john.signForm(true, this->_name);
+		std::cout << "Form: <" << this->_name << "> is signed by "
+			<< john.getName() << std::endl;
 		return ;
 	}
-	john.signForm(false, this->_name);
 	throw GradeTooLowException();
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:47:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/05 12:44:41 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/06 11:01:28 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void	Bureaucrat::promote(void)
 {
 	if (this->_grade == 1)
 		throw GradeTooHighException();
-	this->_grade++;
+	this->_grade--;
 }
 
 void	Bureaucrat::demote(void)
 {
 	if (this->_grade == 150)
 		throw GradeTooLowException();
-	this->_grade--;
+	this->_grade++;
 }
 
 void	Bureaucrat::signForm(AForm &form) const

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:25:04 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/05 12:45:06 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/06 11:18:30 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,77 +18,37 @@
 
 int	main(void)
 {
-	/*	berry tree test	*/
-	
-	ShrubberyCreationForm	form1("home");
-	ShrubberyCreationForm	form2(form1);
-	
 	Bureaucrat				john("John", 1);
 	Bureaucrat				akaky;
-
-	std::cout << form1 << form2 << john << std::endl;
-
-	form1.beSigned(john);
-	try {
-		form2.beSigned(akaky);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << form1;
 	
-	form1.execute(john);
-	try {
-		form2.execute(akaky);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	form2.beSigned(john);
-	try {
-		form2.execute(akaky);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	std::cout << john << akaky << std::endl;
+	
+	/*	berry tree test	*/
+	std::cout << "######   berry tree test   ######" << std::endl;
+	ShrubberyCreationForm	form1("home");
+	ShrubberyCreationForm	form2(form1);
+
+	john.signForm(form1);
+	john.executeForm(form1);
+		
+	akaky.executeForm(form2);
+	john.signForm(form2);
+	akaky.executeForm(form2);
 	
 	/*	pardoned test	*/
 	std::cout << "######   pardon test   ######" << std::endl;
 	PresidentialPardonForm	form3("Jack");
 	PresidentialPardonForm	form4(form3);
 
-	std::cout << form3 << form4 << john;
-
-	form3.beSigned(john);
-	try {
-		form4.beSigned(akaky);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << form3;
+	john.signForm(form3);
+	akaky.signForm(form4);
 	
-	form3.execute(john);
-	try {
-		form4.execute(akaky);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	form4.beSigned(john);
-	try {
-		form4.execute(akaky);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-		
+	john.executeForm(form3);
+	akaky.executeForm(form4);
+	
+	john.signForm(form4);
+	akaky.executeForm(form4);
+	
 	/*	robot test	*/
 	std::cout << "######   robot test   ######" << std::endl;
 	RobotomyRequestForm	form5("Joe");
@@ -97,30 +57,11 @@ int	main(void)
 	std::cout << form5 << form6 << john;
 
 	john.signForm(form5);
-	try {
-		akaky.signForm(form6);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << form5;
+	akaky.signForm(form6);
 	
 	john.executeForm(form5);
-	try {
-		akaky.executeForm(form6);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	akaky.executeForm(form6);
+	
 	john.signForm(form6);
-	try {
-		akaky.executeForm(form6);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
+	akaky.executeForm(form6);
 }

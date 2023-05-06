@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:35:29 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/05 12:50:11 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/06 11:21:03 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	RobotomyRequestForm::beExecuted(void) const
 		std::cout << "[ ominous explosion and shierk ]"
 		<< std::endl
 		<< "I'm sorry to inform you, but the robotomization of " << this->_target
-		<< "had failed" << std::endl;	
+		<< " had failed" << std::endl;	
 	}
 }
 

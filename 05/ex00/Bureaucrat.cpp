@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:47:35 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/04 11:54:45 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/06 11:00:41 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 class Bureaucrat::GradeTooHighException : public std::logic_error
 {
 	public:
-		GradeTooHighException(void) :logic_error("EXECPTION: Grade too high") {};
-		GradeTooHighException(std::string const &error) :logic_error(error) {};
+		GradeTooHighException(void) :logic_error("EXECPTION: Grade too high") {}
+		GradeTooHighException(std::string const &error) :logic_error(error) {}
 };
 
 class Bureaucrat::GradeTooLowException : public std::logic_error
 {
 	public:
-		GradeTooLowException(void) :logic_error("EXECPTION: Grade too low") {};
-		GradeTooLowException(std::string const &error) :logic_error(error) {};
+		GradeTooLowException(void) :logic_error("EXECPTION: Grade too low") {}
+		GradeTooLowException(std::string const &error) :logic_error(error) {}
 };
 
 Bureaucrat::Bureaucrat(void)
-	:_name("Akaky Akakievich Bashmachkin"), _grade(150) {};
+	:_name("Akaky Akakievich Bashmachkin"), _grade(150) {}
 	
 Bureaucrat::Bureaucrat(Bureaucrat const &john)
-	:_name(john._name), _grade(john._grade) {};
+	:_name(john._name), _grade(john._grade) {}
 
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade)
@@ -74,14 +74,14 @@ void	Bureaucrat::promote(void)
 {
 	if (this->_grade == 1)
 		throw GradeTooHighException();
-	this->_grade++;
+	this->_grade--;
 }
 
 void	Bureaucrat::demote(void)
 {
 	if (this->_grade == 150)
 		throw GradeTooLowException();
-	this->_grade--;
+	this->_grade++;
 }
 
 std::ostream		&operator<<(std::ostream &out, Bureaucrat const &john)

@@ -6,7 +6,7 @@
 #    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 13:10:00 by hsliu             #+#    #+#              #
-#    Updated: 2023/05/06 16:36:57 by sasha            ###   ########.fr        #
+#    Updated: 2023/05/06 20:37:45 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR	=	./.obj/
 
 INC_DIR	=	./
 
-LIST_SRC	=	Serializer.Class.cpp main.cpp
+LIST_SRC	=	Serializer.Class.cpp Data.cpp main.cpp
 
 LIST_OBJ	=	$(LIST_SRC:.cpp=.o) 
 

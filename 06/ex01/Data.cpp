@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 14:23:06 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/06 20:37:00 by sasha            ###   ########.fr       */
+/*   Created: 2023/05/06 20:37:11 by sasha             #+#    #+#             */
+/*   Updated: 2023/05/06 20:37:35 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP 
+#include "Data.hpp"
 
-# include <string>
-# include <iostream>
-
-struct Data
+std::ostream	&operator<<(std::ostream &out, Data const &data)
 {
-	int			data1;
-	double		data2;
-	std::string	data3;
-};
-
-std::ostream	&operator<<(std::ostream &out, Data const &data);
-
-#endif
+	out << "Data <" << data.data1 << ", " << data.data2
+		<< ", " << data.data3 << ">" << std::endl;
+	return (out);
+}

@@ -6,15 +6,20 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:20:12 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/06 20:38:31 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/06 20:49:47 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_CLASS_HPP
 # define SERIALIZER_CLASS_HPP
 
+/*
+	ps: the uintptr_t is provided in C99 and C++11, not in C++98
+		hence the <stdint.h> file instead of <sctdint>
+*/
+
 # include "Data.hpp"
-# include <cstdint>
+# include <stdint.h>
 
 class Serializer
 {

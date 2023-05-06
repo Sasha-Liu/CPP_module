@@ -6,11 +6,11 @@
 #    By: sasha <sasha@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/27 13:10:00 by hsliu             #+#    #+#              #
-#    Updated: 2023/05/06 13:47:55 by sasha            ###   ########.fr        #
+#    Updated: 2023/05/06 20:23:49 by sasha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	convert
+NAME	=	guess_type
 
 MAKE	=	make
 
@@ -20,11 +20,11 @@ OBJ_DIR	=	./.obj/
 
 INC_DIR	=	./
 
-LIST_SRC	=	ScalarConverter.Class.cpp main.cpp
+LIST_SRC	=	main.cpp
 
 LIST_OBJ	=	$(LIST_SRC:.cpp=.o) 
 
-LIST_INC	=	 ScalarConverter.Class.hpp
+LIST_INC	=	 Base.Class.hpp
 
 SRC		=	$(addprefix $(SRC_DIR), $(LIST_SRC))
 

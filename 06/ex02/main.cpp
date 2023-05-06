@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:47:42 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/06 16:58:32 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/06 20:18:59 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Base *generate(void)
 		return (new B());
 	if (num % 3 == 2)
 		return (new C());
+	return (NULL);
 }
 
 void identify(Base* p)
@@ -71,10 +72,15 @@ void identify(Base& p)
 	}
 	catch (std::exception &e) {}
 	
-	std::cout << "?" std::endl;
+	std::cout << "?" << std::endl;
 }
 
 int	main(void)
 {
-	
+	Base	*p;
+
+	p = generate();
+	identify(p);
+	identify(*p);
+	delete p;
 }

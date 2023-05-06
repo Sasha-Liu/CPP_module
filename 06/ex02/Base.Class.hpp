@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:45:38 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/06 16:47:03 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/06 20:21:42 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 class Base
 {
-	virtual ~Base(void);
+	public:
+		virtual ~Base(void) {}
 };
 
 class A : public Base {};

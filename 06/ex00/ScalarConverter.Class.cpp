@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:53:10 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/06 21:41:02 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/07 16:22:54 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,54 +16,188 @@ ScalarConverter::ScalarConverter(void) {}
 
 ScalarConverter::~ScalarConverter(void) {}
 		
-void	ScalarConverter::convert(std::string const &s)
+void	ScalarConverter::convert(std::string const &str)
 {
-	std::cout << s << std::endl;
+	if (isFloat(str))
+	{
+		std::cout << "float" << std::endl;
+		return (printFloat(str));
+	}
+	else if (isDouble(str))
+	{
+		std::cout << "double" << std::endl;
+		return (printDouble(str));
+	}
+	else if (isInt(str))
+	{
+		std::cout << "int" << std::endl;
+		return (printInt(str));
+	}
+	else if (isChar(str))
+	{
+		std::cout << "char" << std::endl;
+		return (printChar(str));
+	}	
+	else
+		std::cout << "Inconvertible" << std::endl;
 }
 
-bool	ScalarConverter::isFloat(std::string const &s)
+void	ScalarConverter::printChar(std::string const &str)
 {
-	if (s == "inff" || s == "+inff" || s == "-inff" || s == "nanf"
-			|| s == "INFF" || s == "+INFF" || s == "-INFF" || s == "NANF")
+	char	c;
+	int		i;
+	float	f;
+	double	d;
+	
+	c = *str.begin();
+	i = static_cast<int>(c);
+	f = static_cast<float>(c);
+	d = static_cast<double>(c);
+	if (isprint(c))
+		std::cout << "char: " << c << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;		
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << f << ".0f" << std::endl;
+	std::cout << "double: " << d << ".0" << std::endl;
+}
+
+void	ScalarConverter::printInt(std::string const &str)
+{
+	char	c;
+	int		i;
+	float	f;
+	double	d;
+	
+	i = static_cast<int>(strtol(str.c_str(), NULL, 10));
+	c = static_cast<char>(i);
+	f = static_cast<float>(i);
+	d = static_cast<double>(i);
+	if (isprint(c))
+		std::cout << "char: " << c << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;		
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << f << ".0f" << std::endl;
+	std::cout << "double: " << d << ".0" << std::endl;
+}
+
+//to be mod
+void 	ScalarConverter::printFloat(std::string const &s)
+{
+	float	x;
+	char	c;
+
+	x = static_cast<float>(strtod(s.c_str(), NULL));
+	c = static_cast<char>(x);
+	if (isprint(c))
+		std::cout << "char: " << c << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;		
+	std::cout << "int: " << static_cast<int>(x) << std::endl;
+	std::cout << "float: " << x << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(x) << std::endl;
+}
+
+//to be mod
+void 	ScalarConverter::printDouble(std::string const &s)
+{
+	double	x;
+	char	c;
+
+	x = strtod(s.c_str(), NULL);
+	c = static_cast<char>(x);
+	if (isprint(c))
+		std::cout << "char: " << c << std::endl;
+	else
+		std::cout << "char: Non displayable" << std::endl;		
+	std::cout << "int: " << static_cast<int>(x) << std::endl;
+	std::cout << "float: " << x << "f" << std::endl;
+	std::cout << "double: " << x << std::endl;
+}
+
+bool	ScalarConverter::isFloat(std::string str)
+{
+	std::string::iterator	i;
+	
+	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf"
+		|| str == "INFF" || str == "+INFF" || str == "-INFF" || str == "NANF")
 	{
 		return (true);
 	}
-	
-	
-	
-	return (false);
+	i = str.begin();
+	while (std::isspace(*i))
+		i++;
+	if (*i == '+' || *i == '-')
+		i++;
+	if (!my_isDigit(*i))
+		return (false);
+	while (my_isDigit(*i))
+		i++;
+	if (*i != '.')
+		return (false);
+	i++;
+	if (!my_isDigit(*i))
+		return (false);
+	while (my_isDigit(*i))
+		i++;
+	if (*i != 'f')
+		return (false);
+	return (true);
 }
 
-bool	ScalarConverter::isDouble(std::string const &s)
+bool	ScalarConverter::isDouble(std::string str)
 {
-	if (s == "inf" || s == "+inf" || s == "-inf" || s == "nan"
-			|| s == "INF" || s == "+INF" || s == "-INF" || s == "NAN")
+	std::string::iterator	i;
+	
+	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan"
+		|| str == "INF" || str == "+INF" || str == "-INF" || str == "NAN")
 	{
 		return (true);
 	}
-	
-
-	
-	return (false);
+	i = str.begin();
+	while (std::isspace(*i))
+		i++;
+	if (*i == '+' || *i == '-')
+		i++;
+	if (!my_isDigit(*i))
+		return (false);
+	while (my_isDigit(*i))
+		i++;
+	if (*i != '.')
+		return (false);
+	i++;
+	if (!my_isDigit(*i))
+		return (false);
+	return (true);
 }
 
-bool	ScalarConverter::isInt(std::string const &s)
+bool	ScalarConverter::isInt(std::string str)
 {
-	for (std::string::iterator it = str.begin(); it != str.end(); it++)
+	std::string::iterator	i;
+	
+	i  = str.begin();
+	while (std::isspace(*i))
+		i++;
+	if (*i == '+' || *i == '-')
 	{
-		if (!my_isDigit(*it))
-			return (false);
+		i++;
 	}
+	if (!my_isDigit(*i))
+		return (false);
 	return (true);
 }
 			
-bool	ScalarConverter::isChar(std::string const &s)
+bool	ScalarConverter::isChar(std::string str)
 {
-	char	c;
-	
-	c = *(s.c_str());
-	if (!my_isDigit(c) && s.size() == 1)
+	if (str.size() != 1)
+	{
+		return (false);
+	}
+	if (!my_isDigit(*str.begin()))
+	{
 		return (true);
+	}
 	return (false);
 }
 

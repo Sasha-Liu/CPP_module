@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:47:42 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/06 20:18:59 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/08 12:46:17 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ Base *generate(void)
 	int	num;
 	
 	srand(time(NULL));
-	num = rand();
-	if (num % 3 == 0)
+	num = rand() % 3;
+	if (num == 0)
 		return (new A());
-	if (num % 3 == 1)
+	else if (num == 1)
 		return (new B());
-	if (num % 3 == 2)
+	else
 		return (new C());
-	return (NULL);
 }
 
 void identify(Base* p)

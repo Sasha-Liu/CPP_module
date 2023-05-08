@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:53:10 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/08 11:56:10 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 11:58:23 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void 	ScalarConverter::printDouble(double d)
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
-	if ((abs(d) < FLT_MIN || abs(d) > FLT_MAX) && !isinf(d) && !isnan(d))
+	if ((abs(d) < FLT_MIN || abs(d) > FLT_MAX) && !isinf(d) && !isnan(d) && d)
 		std::cout << "float: Impossible" << std::endl;
 	else if (isinf(d) || isnan(d) || !noFract(d))
 		std::cout << "float: " << f << "f" << std::endl;

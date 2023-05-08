@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.Class.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 13:59:36 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/08 10:07:14 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/08 11:29:16 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <cstdlib>
 # include <climits>
 # include <cmath>
+# include <cfloat>
 
 class ScalarConverter
 {
@@ -35,15 +36,13 @@ class ScalarConverter
 		static bool	isFloat(std::string s);
 		static bool	isDouble(std::string s);
 
-		static void	printChar(std::string const &s);
-		static void	printInt(std::string const &s);
-		static void printFloat(std::string const &s);
-		static void printDouble(std::string const &s);
+		static void	printChar(char c);
+		static void	printInt(int i);
+		static void printFloat(float f);
+		static void printDouble(double d);
 
 		static bool	my_isDigit(char c);
-		static bool	is_pseudo_f(std::string str);
-		static bool	is_pseudo_d(std::string str);
-		static bool	noFract(std::string str);
+		static bool	noFract(double d);
 
 		ScalarConverter	&operator=(ScalarConverter const &conv);
 		ScalarConverter(ScalarConverter const &conv);

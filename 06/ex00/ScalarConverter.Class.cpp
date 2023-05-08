@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.Class.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:53:10 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/08 10:07:32 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/08 11:29:03 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,33 @@ void	ScalarConverter::convert(std::string const &str)
 	if (isFloat(str))
 	{
 		std::cout << "float" << std::endl;
-		return (printFloat(str));
+		return (printFloat(strtod(str.c_str(), NULL)));
 	}
 	else if (isDouble(str))
 	{
 		std::cout << "double" << std::endl;
-		return (printDouble(str));
+		return (printDouble(strtod(str.c_str(), NULL)));
 	}
 	else if (isInt(str))
 	{
 		std::cout << "int" << std::endl;
-		return (printInt(str));
+		return (printInt(static_cast<int>(strtol(str.c_str(), NULL, 10))));
 	}
 	else if (isChar(str))
 	{
 		std::cout << "char" << std::endl;
-		return (printChar(str));
+		return (printChar(*str.begin()));
 	}	
 	else
 		std::cout << "Inconvertible" << std::endl;
 }
 
-void	ScalarConverter::printChar(std::string const &str)
+void	ScalarConverter::printChar(char c)
 {
-	char	c;
 	int		i;
 	float	f;
 	double	d;
 	
-	c = *str.begin();
 	i = static_cast<int>(c);
 	f = static_cast<float>(c);
 	d = static_cast<double>(c);
@@ -62,14 +60,12 @@ void	ScalarConverter::printChar(std::string const &str)
 	std::cout << "double: " << d << ".0" << std::endl;
 }
 
-void	ScalarConverter::printInt(std::string const &str)
+void	ScalarConverter::printInt(int i)
 {
 	char	c;
-	int		i;
 	float	f;
 	double	d;
 	
-	i = static_cast<int>(strtol(str.c_str(), NULL, 10));
 	c = static_cast<char>(i);
 	f = static_cast<float>(i);
 	d = static_cast<double>(i);
@@ -85,64 +81,62 @@ void	ScalarConverter::printInt(std::string const &str)
 }
 
 //to be mod
-void 	ScalarConverter::printFloat(std::string const &str)
+void 	ScalarConverter::printFloat(float f)
 {
 	char	c;
 	int		i;
-	float	f;
 	double	d;
 	
-	f = static_cast<float>(strtod(str.c_str(), NULL));
 	c = static_cast<char>(f);
 	i = static_cast<int>(f);
 	d =  static_cast<double>(f);
-	if (f < CHAR_MIN || f > CHAR_MAX)
+	if (f < CHAR_MIN || f > CHAR_MAX || isnan(f))
 		std::cout << "char: Impossible" << std::endl;
 	else if (isprint(c))
 		std::cout << "char: " << c << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	if (f < INT_MIN || f > INT_MAX || /*not a number*/)
+	if (f < INT_MIN || f > INT_MAX || isnan(f))
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
-	if (is_pseudo_f(str) || !noFract(str))
+	if (isinf(f) || isnan(f) || !noFract(f))
 		std::cout << "float: " << f << "f" << std::endl;
 	else
 		std::cout << "float: " << f << ".0f" << std::endl;
-	if (is_pseudo_f(str) || !noFract(str))
+	if (isinf(f) || isnan(f) || !noFract(f))
 		std::cout << "double: " << d << std::endl;
 	else
 		std::cout << "double: " << d << ".0" << std::endl;
 }
 
 //to be mod
-void 	ScalarConverter::printDouble(std::string const &str)
+void 	ScalarConverter::printDouble(double d)
 {
 	char	c;
 	int		i;
 	float	f;
-	double	d;
-
-	d = strtod(str.c_str(), NULL);
+	
 	c = static_cast<char>(d);
 	i = static_cast<int>(d);
-	f = static_cast<float>(d);
-	if (f < CHAR_MIN || f > CHAR_MAX)
+	f =  static_cast<float>(d);
+	if (d < CHAR_MIN || d > CHAR_MAX || isnan(d))
 		std::cout << "char: Impossible" << std::endl;
 	else if (isprint(c))
 		std::cout << "char: " << c << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	if (f < INT_MIN|| f > INT_MAX)
+	if (d < INT_MIN || d > INT_MAX || isnan(d))
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
-	if (is_pseudo_f(str) || !noFract(str))
+	if (d < FLT_MIN || d > FLT_MAX)
+		std::cout << "float: Impossible" << std::endl;
+	else if (isinf(d) || isnan(d) || !noFract(d))
 		std::cout << "float: " << f << "f" << std::endl;
 	else
 		std::cout << "float: " << f << ".0f" << std::endl;
-	if (is_pseudo_f(str) || !noFract(str))
+	if (isinf(d) || isnan(d) || !noFract(d))
 		std::cout << "double: " << d << std::endl;
 	else
 		std::cout << "double: " << d << ".0" << std::endl;
@@ -152,7 +146,8 @@ bool	ScalarConverter::isFloat(std::string str)
 {
 	std::string::iterator	i;
 	
-	if (is_pseudo_f(str))
+	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan"
+		|| str == "INF" || str == "+INF" || str == "-INF" || str == "NAN")
 	{
 		return (true);
 	}
@@ -181,7 +176,8 @@ bool	ScalarConverter::isDouble(std::string str)
 {
 	std::string::iterator	i;
 	
-	if (is_pseudo_d(str))
+	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf"
+		|| str == "INFF" || str == "+INFF" || str == "-INFF" || str == "NANF")
 		return (true);
 	i = str.begin();
 	while (std::isspace(*i))
@@ -234,34 +230,27 @@ bool	ScalarConverter::my_isDigit(char c)
 	return (std::isdigit(static_cast<unsigned char>(c)));
 }
 
-bool	ScalarConverter::is_pseudo_f(std::string str)
-{
-	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf"
-		|| str == "INFF" || str == "+INFF" || str == "-INFF" || str == "NANF")
-	{
-		return (true);
-	}
-	return (false);
-}
+// bool	ScalarConverter::is_pseudo_f(std::string str)
+// {
+// 	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf"
+// 		|| str == "INFF" || str == "+INFF" || str == "-INFF" || str == "NANF")
+// 	{
+// 		return (true);
+// 	}
+// 	return (false);
+// }
 
-bool	ScalarConverter::is_pseudo_d(std::string str)
-{
-	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan"
-		|| str == "INF" || str == "+INF" || str == "-INF" || str == "NAN")
-	{
-		return (true);
-	}
-	return (false);
-}
+// bool	ScalarConverter::is_pseudo_d(std::string str)
+// {
+// 	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan"
+// 		|| str == "INF" || str == "+INF" || str == "-INF" || str == "NAN")
+// 	{
+// 		return (true);
+// 	}
+// 	return (false);
+// }
 
-bool	ScalarConverter::noFract(std::string str)
+bool	ScalarConverter::noFract(double d)
 {
-	double	d;
-	int		i;
-	
-	d = strtod(str.c_str(), NULL);
-	i = static_cast<int>(d);
-	if (d == static_cast<double>(i))
-		return (true);
-	return (false);
+	return (d == rint(d));
 }

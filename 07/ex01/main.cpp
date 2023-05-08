@@ -3,16 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:06:30 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/08 15:16:20 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 21:49:43 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "iter.hpp"
+
+/*	specialization	*/
+template<>
+void	print<char>(char t)
+{
+	std::cout << t;
+}
+
+/*	instantiation	*/
+template void	print<int>(int t);
 
 int		main(void)
 {

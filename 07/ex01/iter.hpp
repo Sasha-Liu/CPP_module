@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:01:49 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/08 15:14:37 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 21:51:00 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include <cstddef>
 # include <iostream>
 
+/*	function template	*/
 template<typename T>
 void	print(T t)
 {
-	std::cout << t;
+	std::cout << t << " ";
 }
 
 template<typename T>

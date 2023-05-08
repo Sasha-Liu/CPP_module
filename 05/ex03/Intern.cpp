@@ -6,11 +6,18 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:58:30 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/05 13:34:37 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 14:45:48 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+
+class	Intern::FormNotExistException : public std::logic_error
+{
+	public:
+		FormNotExistException(void) :logic_error("Form does not exist") {};
+		FormNotExistException(std::string const &error) :logic_error(error) {};
+};
 
 Intern::Intern(void) {}
 Intern::~Intern(void) {}
@@ -36,7 +43,6 @@ AForm	*Intern::makeForm(std::string const &name, std::string const &target) cons
 		case 2:
 			return (new PresidentialPardonForm(target));
 		default:
-			std::cerr << "Form: <" << name << "> doesn't exist" << std::endl;
-			return (NULL);
+			throw FormNotExistException("Form doesn't exist: <" + name + ">");
 	}
 }

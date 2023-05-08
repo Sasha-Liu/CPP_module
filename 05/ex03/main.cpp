@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:25:04 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/05 13:34:03 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 14:44:03 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,15 @@ int	main(void)
 	john.executeForm(*form);
 	delete form;
 	
-	form = mike.makeForm("NON exist", "park");
-	if (form)
-	{
+	
+	try {
+		form = mike.makeForm("NON exist", "park");
 		john.signForm(*form);
 		john.executeForm(*form);
+		delete form;
 	}
-	delete form;
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}		
 }

@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:02:43 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/05 11:45:08 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 14:34:37 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,6 @@ Form::Form(std::string const &name, int sign_grade, int exec_grade)
 }
 
 Form::~Form(void) {}
-
-/*	name is not copied since it's constant	*/
-Form	&Form::operator=(Form const &form)
-{
-	this->_signed = form._signed;
-	this->_sign_grade = form._sign_grade;
-	this->_exec_grade = form._exec_grade;
-	return (*this);
-}
 
 std::string const	&Form::getName(void) const
 {

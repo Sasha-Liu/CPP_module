@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:58:24 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/05 13:26:50 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 14:39:48 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Intern
 		~Intern(void);
 		
 		AForm	*makeForm(std::string const &name, std::string const &target) const;
+		
+		class	FormNotExistException;
 	
 	private:
 		Intern(Intern const &mike);

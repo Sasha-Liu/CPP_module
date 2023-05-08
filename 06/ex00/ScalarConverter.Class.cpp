@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:53:10 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/08 11:29:03 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 11:39:41 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void 	ScalarConverter::printDouble(double d)
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
-	if (d < FLT_MIN || d > FLT_MAX)
+	if ((abs(d) < FLT_MIN || abs(d) > FLT_MAX) && !isinf(d) && !isnan(d))
 		std::cout << "float: Impossible" << std::endl;
 	else if (isinf(d) || isnan(d) || !noFract(d))
 		std::cout << "float: " << f << "f" << std::endl;
@@ -146,8 +146,8 @@ bool	ScalarConverter::isFloat(std::string str)
 {
 	std::string::iterator	i;
 	
-	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan"
-		|| str == "INF" || str == "+INF" || str == "-INF" || str == "NAN")
+	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf"
+		|| str == "INFF" || str == "+INFF" || str == "-INFF" || str == "NANF")
 	{
 		return (true);
 	}
@@ -176,8 +176,8 @@ bool	ScalarConverter::isDouble(std::string str)
 {
 	std::string::iterator	i;
 	
-	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf"
-		|| str == "INFF" || str == "+INFF" || str == "-INFF" || str == "NANF")
+	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan"
+		|| str == "INF" || str == "+INF" || str == "-INF" || str == "NAN")
 		return (true);
 	i = str.begin();
 	while (std::isspace(*i))

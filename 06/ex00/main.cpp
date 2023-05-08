@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:57:56 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/08 11:35:20 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 11:56:50 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,4 @@ int	main(int argc, char **argv)
 	}
 	str = argv[1];
 	conv.convert(str);
-	
-	//std::cout << "flt min: " << FLT_MIN << "\nflt max" <<  FLT_MAX ;  
 }

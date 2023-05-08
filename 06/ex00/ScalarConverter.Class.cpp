@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:53:10 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/08 11:39:41 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/08 11:56:10 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,20 @@ void	ScalarConverter::convert(std::string const &str)
 {
 	if (isFloat(str))
 	{
-		std::cout << "float" << std::endl;
 		return (printFloat(strtod(str.c_str(), NULL)));
 	}
 	else if (isDouble(str))
 	{
-		std::cout << "double" << std::endl;
 		return (printDouble(strtod(str.c_str(), NULL)));
 	}
 	else if (isInt(str))
 	{
-		std::cout << "int" << std::endl;
 		return (printInt(static_cast<int>(strtol(str.c_str(), NULL, 10))));
 	}
 	else if (isChar(str))
 	{
-		std::cout << "char" << std::endl;
 		return (printChar(*str.begin()));
-	}	
+	}
 	else
 		std::cout << "Inconvertible" << std::endl;
 }
@@ -80,7 +76,6 @@ void	ScalarConverter::printInt(int i)
 	std::cout << "double: " << d << ".0" << std::endl;
 }
 
-//to be mod
 void 	ScalarConverter::printFloat(float f)
 {
 	char	c;
@@ -110,7 +105,6 @@ void 	ScalarConverter::printFloat(float f)
 		std::cout << "double: " << d << ".0" << std::endl;
 }
 
-//to be mod
 void 	ScalarConverter::printDouble(double d)
 {
 	char	c;
@@ -229,26 +223,6 @@ bool	ScalarConverter::my_isDigit(char c)
 {
 	return (std::isdigit(static_cast<unsigned char>(c)));
 }
-
-// bool	ScalarConverter::is_pseudo_f(std::string str)
-// {
-// 	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf"
-// 		|| str == "INFF" || str == "+INFF" || str == "-INFF" || str == "NANF")
-// 	{
-// 		return (true);
-// 	}
-// 	return (false);
-// }
-
-// bool	ScalarConverter::is_pseudo_d(std::string str)
-// {
-// 	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan"
-// 		|| str == "INF" || str == "+INF" || str == "-INF" || str == "NAN")
-// 	{
-// 		return (true);
-// 	}
-// 	return (false);
-// }
 
 bool	ScalarConverter::noFract(double d)
 {

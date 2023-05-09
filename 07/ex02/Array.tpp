@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 09:46:58 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/09 11:09:13 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/09 11:32:35 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ template<typename T>
 Array<T>::Array(Array const &tab): _size(tab._size)
 {
 	this->_ptr = new T[this->_size];
-	for (int i = 0; i < this->_size; i++)
+	for (size_t i = 0; i < this->_size; i++)
 		this->_ptr[i] = tab._ptr[i];
 }
 
@@ -31,20 +31,6 @@ template<typename T>
 Array<T>::~Array(void)
 {
 	delete [] this->_ptr;
-}
-
-template<typename T>
-Array<T>	&Array<T>::operator=(Array const &tab)
-{
-	if (this == &tab)
-	{
-		return (*this);
-	}
-	this->_size = tab._size;
-	delete [] this->_ptr;
-	this->_ptr = new T[this->_size];
-	for (int i = 0; i < this->_size; i++)
-		this->_ptr[i] = tab._ptr[i];
 }
 
 template<typename T>
@@ -61,11 +47,20 @@ T		&Array<T>::operator[](size_t i)
 	return (this->_ptr[i]);
 }
 
+template<typename T>
+T const	&Array<T>::operator[](size_t i) const
+{
+	if (i >= this->_size)
+		throw std::runtime_error("Array: out of bound");
+	return (this->_ptr[i]);
+}
 
 template<typename T>
 std::ostream	&operator<<(std::ostream &out, Array<T> const &tab)
 {
-	//code
+	for (size_t i = 0; i < tab.getSize(); i++)
+		out << tab[i] << " ";
+	out << std::endl;
 	return (out);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:00:40 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/09 11:42:21 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/09 11:54:30 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,15 @@ int	main(void)
 	for (size_t i = 0; i < tab2.getSize(); i++)
 		tab2[i] = i + 'a';
 	std::cout << "tab2: " << tab2 << "tab4: " << tab4 << std::endl;
+
+	std::cout << "### check exception ###" << std::endl;	
+	
+	try {
+		std::cout << tab1[-1];	
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 }

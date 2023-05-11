@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:38:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 16:50:47 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/11 17:02:55 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,11 @@ int		Span::longestSpan(void) const
 	
 std::ostream		&operator<<(std::ostream &out, Span const &span)
 {
+	if (span.getNext() == 0)
+	{
+		out << "empty" << std::endl;
+		return (out);
+	}
 	for (unsigned int i = 0; i < span.getNext(); i++)
 		out << span[i] << " ";
 	out << std::endl;

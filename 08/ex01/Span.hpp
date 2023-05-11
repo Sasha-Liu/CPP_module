@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:17:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 16:26:29 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/11 16:49:52 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdexcept>
 # include <iostream>
 # include <new>
+# include <algorithm>
 
 class Span
 {
@@ -31,8 +32,8 @@ class Span
 		int				&operator[](unsigned int i);
 		
 		void	addNumber(int n);
-		// int		shortestSpan(void) const;
-		// int		longestSpan(void) const;
+		int		shortestSpan(void) const;
+		int		longestSpan(void) const;
 		
 		template<class InputIt>
 		Span(InputIt first, InputIt last);

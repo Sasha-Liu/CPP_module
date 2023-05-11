@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:38:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 16:23:08 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/11 16:50:47 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,40 @@ void	Span::addNumber(int n)
 	this->_next++;
 }
 
-// int		Span::shortestSpan(void) const
-// {
+int		Span::shortestSpan(void) const
+{
+	Span	copy(this->_tab, this->_tab + this->_next);
+	int		min;
+	int		temp;
 	
-// }
+	if (this->_next <= 1)
+	{
+		throw std::runtime_error("Span: longestSpan: not enough element");
+	}
+	std::sort(copy._tab, copy._tab + copy._size);
+	min = copy[1] - copy[0];
+	for (unsigned int i = 2; i < copy._size; i++)
+	{
+		temp = copy[i] - copy[i - 1];
+		if (temp < min)
+			min = temp;
+	}
+	return (min);
+}
 
-// int		Span::longestSpan(void) const
-// {
+int		Span::longestSpan(void) const
+{
+	Span	copy(this->_tab, this->_tab + this->_next);
 	
-// }
+	if (this->_next <= 1)
+	{
+		throw std::runtime_error("Span: longestSpan: not enough element");
+	}
+	std::sort(copy._tab, copy._tab + copy._size);
+	return (copy[copy._size - 1] - copy[0]);
+}
 
-
-
-		
+	
 std::ostream		&operator<<(std::ostream &out, Span const &span)
 {
 	for (unsigned int i = 0; i < span.getNext(); i++)

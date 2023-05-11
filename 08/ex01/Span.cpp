@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:38:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 17:02:55 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/11 17:15:32 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,6 @@ int	const	&Span::operator[](unsigned int i) const
 	if (i >= this->_next)
 	{
 		throw std::runtime_error("Span: read uninitilaized value");
-	}
-	return (this->_tab[i]);
-}
-
-/*	allow write	*/
-int		&Span::operator[](unsigned int i)
-{
-	if (i >= this->_size)
-	{
-		throw std::runtime_error("Span: Array out of Bound");
 	}
 	return (this->_tab[i]);
 }

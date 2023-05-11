@@ -6,11 +6,13 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:20:01 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 17:03:35 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/11 17:15:01 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <cstdlib>
+#include <ctime>
 
 int	main(void)
 {
@@ -89,6 +91,18 @@ int	main(void)
 		try {
 			std::cout << "longest span: " << sp.longestSpan() << std::endl;
 		} catch (std::exception &e) {}
+		std::cout << std::endl;
+	}
+	/*	test with 10 000 number	*/
+	{
+		Span	span(10000);
+		
+		srand(time(NULL));
+		for (unsigned int i = 0; i < 10000; i++)
+			span.addNumber(rand() % 10000);
+		std::cout << span;
+		std::cout << "shortest span: " << span.shortestSpan() << std::endl;
+		std::cout << "longest span: " << span.longestSpan() << std::endl;
 	}
 	
 }

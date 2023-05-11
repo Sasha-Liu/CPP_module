@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:17:48 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 16:49:52 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/11 17:15:26 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Span
 		unsigned int	getSize(void) const;
 		unsigned int	getNext(void) const;
 		int const		&operator[](unsigned int i) const;
-		int				&operator[](unsigned int i);
 		
 		void	addNumber(int n);
 		int		shortestSpan(void) const;

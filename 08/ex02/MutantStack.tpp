@@ -6,62 +6,64 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:54:05 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/11 21:59:16 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 10:45:27 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_TPP
 # define MUTANTSTACK_TPP
 
-template<typename T>
-MutantStack<T>::MutantStack(void): _stack() {}
+template<class T, class Container>
+MutantStack<T, Container>::MutantStack(container_type const &ctnr):
+	_stack(ctnr.begin(), ctnr.end()) {}
 
-template<typename T>
-MutantStack<T>::MutantStack(MutantStack const &m): _stack(m._stack) {}
+template<class T, class Container>
+MutantStack<T, Container>::MutantStack(MutantStack const &m):
+	_stack(m._stack) {}
+	
+template<class T, class Container>
+MutantStack<T, Container>::~MutantStack(void) {}
 
-template<typename T>		
-MutantStack<T>::~MutantStack(void) {}
-
-template<typename T>
-MutantStack<T>	&MutantStack<T>::operator=(MutantStack const &m)
+template<class T, class Container>
+MutantStack<T, Container>	&MutantStack<T, Container>::operator=(MutantStack const &m)
 {
 	this->_stack = m._stack;
 }
 
-template<typename T>
-typename MutantStack<T>::reference	MutantStack<T>::top(void)
+template<class T, class Container>
+typename MutantStack<T, Container>::reference	MutantStack<T, Container>::top(void)
 {
 	return (this->_stack.back());
 }
 
-template<typename T>
-typename MutantStack<T>::const_reference	MutantStack<T>::top(void) const
+template<class T, class Container>
+typename MutantStack<T, Container>::const_reference	MutantStack<T, Container>::top(void) const
 {
 	return (this->_stack.back());
 }
 
-template<typename T>
-bool	MutantStack<T>::empty(void) const
+template<class T, class Container>
+bool	MutantStack<T, Container>::empty(void) const
 {
 	if (this->size() == 0)
 		return (true);
 	return (false);
 }
 
-template<typename T>
-typename MutantStack<T>::size_type	MutantStack<T>::size(void) const
+template<class T, class Container>
+typename MutantStack<T, Container>::size_type	MutantStack<T, Container>::size(void) const
 {
 	return (this->_stack.size());
 }
 
-template<typename T>
-void	MutantStack<T>::push(const value_type &value)
+template<class T, class Container>
+void	MutantStack<T, Container>::push(const value_type &value)
 {
 	this->_stack.push_back(value);
 }
 
-template<typename T>
-void	MutantStack<T>::pop(void)
+template<class T, class Container>
+void	MutantStack<T, Container>::pop(void)
 {
 	this->_stack.pop_back();
 }

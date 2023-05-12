@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:26:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/11 21:56:30 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 10:44:21 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 # define MUTANTSTACK_HPP
 
 # include <deque>
+# include <iostream>
 
-template<typename T>
+template<class T, class Container = std::deque<T> >
 class MutantStack
 {
 	public:
+		/*	member type	*/
+		typedef Container							container_type;
+		typedef typename Container::value_type		value_type;
+		typedef typename Container::size_type		size_type;
+		typedef typename Container::reference		reference;
+		typedef typename Container::const_reference	const_reference;
 				
 		/*	canonical form	*/
-		MutantStack<T>(void);
-		MutantStack<T>(MutantStack const &m);
-		~MutantStack<T>(void);
+		explicit MutantStack<T, Container>(container_type const &ctnr = Container());
+		MutantStack<T, Container>(MutantStack const &m);
+		~MutantStack<T, Container>(void);
 		MutantStack	&operator=(MutantStack const &m);
-
-		/*	member type	*/
-		typedef typename std::deque<T>					container_type;
-		typedef typename std::deque<T>::value_type		value_type;
-		typedef typename std::deque<T>::size_type		size_type;
-		typedef typename std::deque<T>::reference		reference;
-		typedef typename std::deque<T>::const_reference	const_reference;
 
 		/*	member func	*/
 		reference		top(void);
@@ -52,7 +52,7 @@ class MutantStack
 		// operator>=
 
 	protected:
-		std::deque<T>	_stack;
+		Container	_stack;
 };
 
 # include "MutantStack.tpp"

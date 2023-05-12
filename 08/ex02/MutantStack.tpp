@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:54:05 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 13:55:01 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 13:59:56 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ template<class T, class Container>
 MutantStack<T, Container>	&MutantStack<T, Container>::operator=(MutantStack const &m)
 {
 	this->_stack = m._stack;
+	return (*this);
 }
 
 template<class T, class Container>
@@ -103,11 +104,12 @@ std::ostream	&operator<<(std::ostream &out, MutantStack<T, C> const &m)
 {
 	if (m.empty())
 	{
-		out << "empty";
+		out << "empty" << std::endl;
 		return (out);
 	}
 	for (typename MutantStack<T, C>::const_iterator it = m.begin(); it != m.end(); it++)
 		out << *it << " ";
+	out << std::endl;
 	return (out);
 }
 

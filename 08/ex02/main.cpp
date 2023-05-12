@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 21:52:53 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 12:03:35 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 12:04:41 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int main()
 			std::cout << *it << std::endl;
 			++it;
 		}
+		// std::stack<int> s(mstack);
 		std::stack<int, MutantStack<int> > s(mstack);
 	}
 	/*	test in project	*/
@@ -65,6 +66,7 @@ int main()
 			std::cout << *it << std::endl;
 			++it;
 		}
+		// std::stack<int> s(mlist);
 		std::stack<int, std::list<int> > s(mlist);
 	}
 }

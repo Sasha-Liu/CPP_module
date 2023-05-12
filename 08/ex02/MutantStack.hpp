@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:26:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 11:39:07 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 12:12:44 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class MutantStack
 		typedef Container							container_type;
 		typedef typename Container::value_type		value_type;
 		typedef typename Container::size_type		size_type;
+		typedef typename Container::difference_type	difference_type;
 		typedef typename Container::reference		reference;
 		typedef typename Container::const_reference	const_reference;
 		typedef typename Container::iterator		iterator;

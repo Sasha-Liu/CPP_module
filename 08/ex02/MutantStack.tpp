@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:54:05 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 11:39:22 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 12:21:03 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ template<class T, class Container>
 typename MutantStack<T, Container>::size_type	MutantStack<T, Container>::size(void) const
 {
 	return (this->_stack.size());
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::size_type	MutantStack<T, Container>::max_size(void) const
+{
+	return (this->_stack.max_size());
 }
 
 template<class T, class Container>

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:26:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 12:12:44 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 12:20:24 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class MutantStack
 		const_reference	top(void) const;
 		bool			empty(void) const;
 		size_type		size(void) const;
+		size_type		max_size(void) const;
 		void			push(const value_type &value);
 		void			pop(void);
 		const_iterator	begin(void) const;

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 21:52:53 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 12:04:41 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 12:19:38 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,10 @@ int main()
 		}
 		// std::stack<int> s(mlist);
 		std::stack<int, std::list<int> > s(mlist);
+	}
+	/*	other test	*/
+	std::cout << "Other test" << std::endl;
+	{
+		
 	}
 }

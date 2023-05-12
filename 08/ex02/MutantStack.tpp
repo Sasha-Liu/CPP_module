@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:54:05 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 11:10:10 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 11:39:22 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,5 @@ typename MutantStack<T, Container>::iterator		MutantStack<T, Container>::end(voi
 {
 	return (this->_stack.end());
 }
-
 
 #endif

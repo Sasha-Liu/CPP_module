@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 21:52:53 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/11 21:54:12 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 11:19:19 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 int	main(void)
 {
-	MutantStack<int>	stack;
+	MutantStack<int>	stack1;
+	MutantStack<int>	stack2;
+	
 
-	stack.push(10);
-	std::cout << stack.top() << std::endl;
+	stack1.push(10);
+	stack2.push(20);
+	std::cout << "stack1 == stack2 returns " << (stack1 == stack2) << std::endl;
 }

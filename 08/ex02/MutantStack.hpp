@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:26:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 11:06:24 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 11:39:07 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class MutantStack
 		typedef typename Container::const_reference	const_reference;
 		typedef typename Container::iterator		iterator;
 		typedef typename Container::const_iterator	const_iterator;
-		
-				
+
 		/*	canonical form	*/
 		explicit MutantStack<T, Container>(container_type const &ctnr = Container());
 		MutantStack<T, Container>(MutantStack const &m);
@@ -47,17 +46,6 @@ class MutantStack
 		iterator		begin(void);
 		const_iterator	end(void) const;
 		iterator		end(void);
-		
-		
-		/*	ctor and dtor : to be added	*/
-		
-		/*	non-member function	*/
-		// operator==
-		// operator!=
-		// operator<
-		// operator<=
-		// operator>
-		// operator>=
 
 	protected:
 		Container	_stack;

@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:46:45 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 14:54:15 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 17:39:32 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stack>
 # include <string>
 # include <iostream>
+# include <sstream>
+# include <cctype>
 
 class RPN
 {
@@ -23,11 +25,13 @@ class RPN
 		RPN(void);
 		~RPN(void);
 	
-		static int	calculator(std::string const &input);
+		bool	calculator(std::string const &str);
 	
 	private:
 		std::stack<int>	_stack;
-	
+
+		bool		doMath(char token);
+		static int	OperatorNum(char c);
 		RPN	&operator=(RPN const &rpn);
 		RPN(RPN const &rpn);
 };

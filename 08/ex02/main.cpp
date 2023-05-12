@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 21:52:53 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 12:19:38 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 13:51:52 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <list>
 #include <stack>
+#include <vector>
 
 int main()
 {
@@ -72,6 +73,29 @@ int main()
 	/*	other test	*/
 	std::cout << "Other test" << std::endl;
 	{
+		std::deque<int>	my_deque;
+		my_deque.push_back(1);
+		my_deque.push_back(2);
+		my_deque.push_back(3);
+		
+		std::list<int> my_list;
+		my_list.push_back(5);
+		my_list.push_back(10);
+
+		std::vector<double>	my_vector;
+		my_vector.push_back(3);
+		my_vector.push_back(4);
+		
+		/*	all ctor	*/
+		MutantStack<int>					stack1;
+		MutantStack<int>					stack2(my_deque);
+		MutantStack<int, std::list<int> >	stack3(my_list);
+		MutantStack<int, std::vector<double> >	stack4(my_vector);
+		
+		std::cout << "stack1: " << stack1 << std::endl;
+		std::cout << "stack2: " << stack2 << std::endl;
+		std::cout << "stack3: " << stack3 << std::endl;
+		std::cout << "stack4: " << stack4 << std::endl;
 		
 	}
 }

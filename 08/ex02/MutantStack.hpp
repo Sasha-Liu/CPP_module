@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:26:01 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 12:20:24 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 13:55:06 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ class MutantStack
 	protected:
 		Container	_stack;
 };
+
+template<class T, class C>
+std::ostream	&operator<<(std::ostream &out, MutantStack<T, C> const &m);
 
 # include "MutantStack.tpp"
 

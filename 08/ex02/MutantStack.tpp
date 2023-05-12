@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:54:05 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 12:21:03 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 13:55:01 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,19 @@ template<class T, class Container>
 typename MutantStack<T, Container>::iterator		MutantStack<T, Container>::end(void)
 {
 	return (this->_stack.end());
+}
+
+template<class T, class C>
+std::ostream	&operator<<(std::ostream &out, MutantStack<T, C> const &m)
+{
+	if (m.empty())
+	{
+		out << "empty";
+		return (out);
+	}
+	for (typename MutantStack<T, C>::const_iterator it = m.begin(); it != m.end(); it++)
+		out << *it << " ";
+	return (out);
 }
 
 #endif

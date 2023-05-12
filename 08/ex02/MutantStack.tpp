@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 20:54:05 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 10:45:27 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/12 11:10:10 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,30 @@ template<class T, class Container>
 void	MutantStack<T, Container>::pop(void)
 {
 	this->_stack.pop_back();
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::const_iterator	MutantStack<T, Container>::begin(void) const
+{
+	return (this->_stack.begin());
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::iterator		MutantStack<T, Container>::begin(void)
+{
+	return (this->_stack.begin());
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::const_iterator	MutantStack<T, Container>::end(void) const
+{
+	return (this->_stack.end());
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::iterator		MutantStack<T, Container>::end(void)
+{
+	return (this->_stack.end());
 }
 
 

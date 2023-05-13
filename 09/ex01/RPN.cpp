@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:52:32 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/12 17:43:48 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/13 15:49:25 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ bool	RPN::calculator(std::string const &str)
 
 	while (input >> token)
 	{
-		// input >> token;
 		if (isdigit(token))
 		{
 			this->_stack.push(static_cast<int>(token - '0'));
@@ -62,6 +61,8 @@ bool	RPN::doMath(char token)
 			this->_stack.push(x * y);
 			break ;
 		case '/':
+			if (y == 0)
+				return (false);
 			this->_stack.push(x / y);
 			break ;
 		default:

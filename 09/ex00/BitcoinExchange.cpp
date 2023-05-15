@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:45:25 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 18:21:45 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/15 18:36:25 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ bool	BitcoinExchange::read_data(void)
 		return (false);
 	while (getline(fin, line))
 	{
+		if (line.find("date") != std::string::npos)
+			continue ;
 		date = line.substr(0, line.find(","));
 		rate = line.substr(line.find(",") + 1, std::string::npos);
 		this->_map.insert(map::value_type(date, strtod(rate.c_str(), NULL)));
@@ -40,6 +42,7 @@ void	BitcoinExchange::process(std::string const &file)
 	std::string		line;
 	std::string		date;
 	double			value;
+	map::iterator	it;
 
 	fin.open(file.c_str());
 	if (!fin.is_open())
@@ -52,7 +55,13 @@ void	BitcoinExchange::process(std::string const &file)
 		if (line.find("date") != std::string::npos)
 			continue ;
 		if (parse_line(line, date, value))
-			std::cout << date << "=>" << value << "=" << this->_map.lower_bound(date)->second << std::endl;
+		{
+			it = this->_map.lower_bound(date);
+			if (it == this->_map.end())
+				std::cerr << "Date not found" << std::endl;
+			else
+				std::cout << date << "=>" << value << "=" << it->first << " " << it->second << std::endl;
+		}
 	}
 }
 
@@ -81,9 +90,9 @@ bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &v
 		return (false);
 	}
 	if (line[it3 - 1] == ' ')
-		date = line.substr(0, it3 - 2);
-	else
 		date = line.substr(0, it3 - 1);
+	else
+		date = line.substr(0, it3);
 	val = line.substr(it3 + 1, std::string::npos);
 	value = strtod(val.c_str(), NULL);
 	if (value < 0 || value > 1000)

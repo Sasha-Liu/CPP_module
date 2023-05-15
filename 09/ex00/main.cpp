@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:33:16 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 14:58:30 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/15 18:38:19 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	main(int argc, char **argv)
 		std::cout << "need input file" << std::endl;
 		return (0);
 	}
-	bc.read_data();
+	if (!bc.read_data())
+	{
+		std::cout << "cannot open file: data.csv" << std::endl;
+		return (0);
+	}
 	bc.process(argv[1]);
-
-	
 }

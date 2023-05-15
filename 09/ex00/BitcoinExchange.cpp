@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:45:25 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 18:36:25 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/15 18:52:35 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,14 @@ void	BitcoinExchange::process(std::string const &file)
 			it = this->_map.lower_bound(date);
 			if (it == this->_map.end())
 				std::cerr << "Date not found" << std::endl;
+			else if (it->first != date && it == this->_map.begin())
+				std::cerr << "Date not found" << std::endl;
 			else
-				std::cout << date << "=>" << value << "=" << it->first << " " << it->second << std::endl;
+			{
+				if (it->first != date)
+					it--;
+				std::cout << date << "=>" << value << "=" << value * it->second << std::endl;	
+			}
 		}
 	}
 }
@@ -97,7 +103,7 @@ bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &v
 	value = strtod(val.c_str(), NULL);
 	if (value < 0 || value > 1000)
 	{
-		std::cerr << "Invalid value" << std::endl;
+		std::cerr << "Value out of range" << std::endl;
 		return (false);
 	}
 	return (true);

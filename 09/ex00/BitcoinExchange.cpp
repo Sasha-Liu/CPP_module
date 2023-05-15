@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:45:25 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 17:57:56 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/15 18:21:45 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	BitcoinExchange::process(std::string const &file)
 		if (line.find("date") != std::string::npos)
 			continue ;
 		if (parse_line(line, date, value))
-			std::cout << date << " => " << value << " = " << this->_map.lower_bound(date)->second * value << std::endl;
+			std::cout << date << "=>" << value << "=" << this->_map.lower_bound(date)->second << std::endl;
 	}
 }
 
@@ -65,22 +65,25 @@ bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &v
 	int						time[3];
 	
 	it1 = line.find("-", 0);
-	it2 = line.find("-", it1);
-	it3 = line.find("|", it2);
+	it2 = line.find("-", it1 + 1);
+	it3 = line.find("|", it2 + 1);
 	if (it1 == std::string::npos || it2 == std::string::npos || it3 == std::string::npos)
 	{
 		std::cerr << "Missing sign" << std::endl;
 		return (false);
 	}
 	time[0] = atoi(line.substr(0, it1).c_str());
-	time[1] = atoi(line.substr(it1 + 1, it2).c_str());
-	time[2] = atoi(line.substr(it2 + 1, it3).c_str());
+	time[1] = atoi(line.substr(it1 + 1, it2 - it1 - 1).c_str());
+	time[2] = atoi(line.substr(it2 + 1, it3 - it2 - 1).c_str());
 	if (!date_valid(time[0], time[1], time[2]))
 	{
 		std::cerr << "Invalid date" << std::endl;
 		return (false);
 	}
-	date = line.substr(0, it3);
+	if (line[it3 - 1] == ' ')
+		date = line.substr(0, it3 - 2);
+	else
+		date = line.substr(0, it3 - 1);
 	val = line.substr(it3 + 1, std::string::npos);
 	value = strtod(val.c_str(), NULL);
 	if (value < 0 || value > 1000)
@@ -95,6 +98,8 @@ bool	BitcoinExchange::date_valid(int year, int month, int day)
 {
 	int	leap;
 	int mon_day[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+	// std::cout << "check: "<< year <<"-"<< month <<"-"<< day << std::endl;
 
 	if (year < 0)
 		return (false);

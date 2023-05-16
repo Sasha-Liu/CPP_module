@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:52 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/16 17:11:45 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/16 21:30:53 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include <vector>
 #include <list>
 #include <iostream>
-
-#define NUM 5
 
 int main(int argc, char **argv)
 {
@@ -31,15 +29,5 @@ int main(int argc, char **argv)
 	{
 		input.push_back(atoi(argv[i]));
 	}
-	
-	std::vector<int>	vec(input.begin(), input.end());
-	std::list<int>		lst(input.begin(), input.end());
-	
-	std::cout << "Before: " << vec << std::endl;
-	
-	pm.sort_and_timed(lst);
-	pm.sort_and_timed(vec);
-	
-	std::cout << "After: " << vec << std::endl;	
-
+	pm.sort_and_timed(input);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:38:09 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/16 17:10:30 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/16 21:55:09 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,16 @@
 # include <vector>
 # include <list>
 # include <iostream>
-#include <deque>
+# include <ctime>
+# include <sys/time.h>
 
 class PmergeMe
 {
 	public:
-		
 		PmergeMe(void);
 		~PmergeMe(void);
 		
-		template<class C>
-		static void	sort_and_timed(C &data);
+		static void	sort_and_timed(std::vector<int> const &data);
 	
 	private:
 		template<class C>
@@ -39,6 +38,8 @@ class PmergeMe
 		
 		template<class C>
 		static void	insert_sort(C &data);
+
+		static long get_time(void);
 		
 		PmergeMe(PmergeMe const &pm);
 		PmergeMe	&operator=(PmergeMe const &pm);
@@ -46,21 +47,6 @@ class PmergeMe
 
 std::ostream	&operator<<(std::ostream &out, std::vector<int> vec);
 std::ostream	&operator<<(std::ostream &out, std::list<int> lst);
-
-template<class C>
-void	PmergeMe::sort_and_timed(C &data)
-{
-	time_t	start;
-	time_t	end;
-	double	diff;
-	
-	start = time(0);
-	merge_insert(data);
-	end = time(0);
-	diff = difftime(end, start) * 1000.0;
-	std::cout << "Time: " << diff << std::endl;
-}
-
 
 template<class C>
 void	PmergeMe::merge_insert(C &data)

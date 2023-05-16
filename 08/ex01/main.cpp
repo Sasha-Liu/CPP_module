@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:20:01 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 17:15:01 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/16 15:08:50 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,15 @@ int	main(void)
 		std::cout << span;
 		std::cout << "shortest span: " << span.shortestSpan() << std::endl;
 		std::cout << "longest span: " << span.longestSpan() << std::endl;
+	}
+	/*	other test	*/
+	{
+		int	a[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+		Span	sp1(a, a + 10);
+		Span	sp2(sp1);
+		Span	sp3 = sp1;
+		std::cout << "sp1: " << sp1 << "sp2: " << sp2 << "sp3: " << sp3 << std::endl;
 	}
 	
 }

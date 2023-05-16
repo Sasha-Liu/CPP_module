@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:38:00 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/11 17:15:32 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/16 15:13:17 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 Span::Span(unsigned int n): _size(n), _next(0), _tab(new int[n]) {}
 
 Span::Span(Span const &span): 
-	_size(span._size), _next(span._next), _tab(new int[_size]) {}
+	_size(span._size), _next(span._next), _tab(new int[_size])
+{
+	for (unsigned int i = 0; i < this->_size; i++)
+		this->_tab[i] = span._tab[i];
+}
 
 Span::~Span(void)
 {
@@ -24,6 +28,8 @@ Span::~Span(void)
 
 Span	&Span::operator=(Span const &span)
 {
+	if (this == &span)
+		return (*this);
 	delete [] this->_tab;
 	this->_size = span._size;
 	this->_next = span._next;

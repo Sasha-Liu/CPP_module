@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:52:32 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 15:57:58 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/16 13:57:37 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,15 @@ RPN::~RPN(void) {}
 	
 bool	RPN::calculator(std::string const &str)
 {
+	std::stringstream	input(str);
 	std::stack<int>		stack;
-
-	for (std::string::const_iterator i = str.begin(); i != str.end(); i++)
+	char				c;
+	
+	while (input >> c)
 	{
-		if (*i == ' ')
-			;
-		else if (isdigit(*i))
-			stack.push(static_cast<int>(*i - '0'));
-		else if (stack.size() < 2 && *i == '-' && isdigit(*(i + 1)))
-		{
-			i++;
-			stack.push(static_cast<int>('0' - *i));
-		}	
-		else if (stack.size() == 2)
-		{
-			if (!doMath(*i, stack))
-				return (false);
-		}
-		else
+		if (isdigit(c))
+			stack.push(static_cast<int>(c - '0'));
+		else if (stack.size() < 2 || !doMath(c, stack))
 			return (false);
 	}
 	if (stack.size() != 1)

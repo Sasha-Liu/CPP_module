@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:45:25 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 18:52:35 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/16 12:07:17 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ bool	BitcoinExchange::read_data(void)
 
 	fin.open("data.csv");
 	if (!fin.is_open())
+	{
+		std::cerr << "Cannot open: data.csv" << std::endl;
 		return (false);
+	}
 	while (getline(fin, line))
 	{
 		if (line.find("date") != std::string::npos)
@@ -71,35 +74,45 @@ void	BitcoinExchange::process(std::string const &file)
 	}
 }
 
-bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &value)
+bool	BitcoinExchange::parse_line(std::string &line, std::string &date, std::string &value)
 {
+	std::string::size_type	it0;
 	std::string::size_type	it1;
 	std::string::size_type	it2;
 	std::string::size_type	it3;
-	std::string				val;
-	int						time[3];
+	std::string::size_type	it4;
 	
-	it1 = line.find("-", 0);
-	it2 = line.find("-", it1 + 1);
-	it3 = line.find("|", it2 + 1);
-	if (it1 == std::string::npos || it2 == std::string::npos || it3 == std::string::npos)
+	if (line.find_first_not_of(" \t\n\v\f\r") == std::string::npos)
 	{
-		std::cerr << "Missing sign" << std::endl;
+		std::cout << std::endl;
 		return (false);
 	}
-	time[0] = atoi(line.substr(0, it1).c_str());
-	time[1] = atoi(line.substr(it1 + 1, it2 - it1 - 1).c_str());
-	time[2] = atoi(line.substr(it2 + 1, it3 - it2 - 1).c_str());
-	if (!date_valid(time[0], time[1], time[2]))
+	if (line.find_first_not_of("0123456789-.| ") != std::string::npos)
+	{
+		std::cout << "Extra symbol" << std::endl;
+		return (false);
+	}
+	it0 = line.find_first_not_of(" ", 0);
+	it1 = line.find("-", 0);
+	it2 = line.find("-", it1 + 1);
+	it3 = line.find_first_of("| ", it2 + 1);
+	if (it1 == std::string::npos || it2 == std::string::npos || it3 == std::string::npos)
+	{
+		std::cerr << "Missing sign: - or |" << std::endl;
+		return (false);
+	}
+	if (!date_valid(line.substr(it0, it1 - it0),
+					line.substr(it + 1, it2 - it1 - 1),
+					line.substr(it2 + 1, it3 - it2 - 1)))
 	{
 		std::cerr << "Invalid date" << std::endl;
 		return (false);
 	}
-	if (line[it3 - 1] == ' ')
-		date = line.substr(0, it3 - 1);
-	else
-		date = line.substr(0, it3);
-	val = line.substr(it3 + 1, std::string::npos);
+	date = line.substr(it0, it3 - it0);
+	it4 = line.find_first_of("-0123456789", it3);
+	value = line.substr(it4, std::string::npos);
+	//check valid value
+	
 	value = strtod(val.c_str(), NULL);
 	if (value < 0 || value > 1000)
 	{
@@ -109,26 +122,26 @@ bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &v
 	return (true);
 }
 
-bool	BitcoinExchange::date_valid(int year, int month, int day)
+bool	BitcoinExchange::date_valid(std::string const &y, std::string const &m, std::string const &d)
 {
-	int	leap;
 	int mon_day[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-	// std::cout << "check: "<< year <<"-"<< month <<"-"<< day << std::endl;
-
+	int	year;
+	int	month;
+	int	day;
+	
+	if (y.find_first_not_of("0123456789") != std::string::npos
+			|| m.find_first_not_of("0123456789") != std::string::npos
+			|| d.find_first_not_of("0123456789") != std::string::npos)
+		return (false);
+	year = atoi(y.c_str());
+	month = atoi(m.c_str());
+	day = atoi(d.c_str());
 	if (year < 0)
 		return (false);
 	if (month < 1 || month > 12)
 		return (false);
 	if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
-    {
-		leap = 1;
-	}
-	else
-	{
-        leap = 0;
-	}
-	mon_day[1] += leap;
+		mon_day[1] += 1;
     if ((day > mon_day[month - 1]) || (day < 1))
         return (false);
     return (true);

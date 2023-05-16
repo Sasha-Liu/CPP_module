@@ -6,7 +6,7 @@
 /*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:52 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/16 21:30:53 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/16 22:02:52 by sasha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int main(int argc, char **argv)
 	for (int i = 1; i < argc; i++)
 	{
 		input.push_back(atoi(argv[i]));
+		if (atoi(argv[i]) < 0)
+		{
+			std::cout << "Negative value: " << argv[i] << std::endl;
+			return (0);
+		}
 	}
 	pm.sort_and_timed(input);
 }

@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:45:25 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/16 12:07:17 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/16 13:29:20 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,14 @@ void	BitcoinExchange::process(std::string const &file)
 	}
 }
 
-bool	BitcoinExchange::parse_line(std::string &line, std::string &date, std::string &value)
+bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &val)
 {
 	std::string::size_type	it0;
 	std::string::size_type	it1;
 	std::string::size_type	it2;
 	std::string::size_type	it3;
 	std::string::size_type	it4;
+	std::string				value;
 	
 	if (line.find_first_not_of(" \t\n\v\f\r") == std::string::npos)
 	{
@@ -102,19 +103,23 @@ bool	BitcoinExchange::parse_line(std::string &line, std::string &date, std::stri
 		return (false);
 	}
 	if (!date_valid(line.substr(it0, it1 - it0),
-					line.substr(it + 1, it2 - it1 - 1),
+					line.substr(it1 + 1, it2 - it1 - 1),
 					line.substr(it2 + 1, it3 - it2 - 1)))
 	{
 		std::cerr << "Invalid date" << std::endl;
 		return (false);
 	}
 	date = line.substr(it0, it3 - it0);
-	it4 = line.find_first_of("-0123456789", it3);
+	it4 = line.find_first_not_of("| ", it3);
 	value = line.substr(it4, std::string::npos);
-	//check valid value
-	
-	value = strtod(val.c_str(), NULL);
-	if (value < 0 || value > 1000)
+	if (!value_valid(value))
+	{
+		std::cout << "value: " << value << "$" << std::endl;
+		std::cout << "value not valid" << std::endl;
+		return (false);
+	}
+	val = strtod(value.c_str(), NULL);
+	if (val < 0 || val > 1000)
 	{
 		std::cerr << "Value out of range" << std::endl;
 		return (false);
@@ -145,4 +150,44 @@ bool	BitcoinExchange::date_valid(std::string const &y, std::string const &m, std
     if ((day > mon_day[month - 1]) || (day < 1))
         return (false);
     return (true);
+}
+
+bool	BitcoinExchange::value_valid(std::string const &value)
+{
+	std::string::const_iterator	i;
+	
+	i = value.begin();
+	if (value.find(".") == std::string::npos)
+	{
+		if (*i == '-')
+			i++;
+		if (!isdigit(*i))
+			return (false);
+		while (isdigit(*i))
+			i++;
+		while (std::isspace(*i))
+			i++;
+		if (i == value.end())
+			return (true);
+		return (false);
+	}
+	else
+	{
+		if (*i == '-')
+			i++;
+		if (!isdigit(*i))
+			return (false);
+		while (isdigit(*i))
+			i++;
+		if (*i == '.')
+			i++;
+		if (!isdigit(*i))
+			return (false);
+		while (isdigit(*i))
+			i++;
+		if (i == value.end())
+			return (true);
+		return (false);
+	}
+	
 }

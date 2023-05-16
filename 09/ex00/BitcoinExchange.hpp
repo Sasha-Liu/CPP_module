@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:30:55 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 17:48:05 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/16 12:23:34 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fstream>
 # include <cstdlib>
 # include <ctime>
+# include <cctype>
 
 class BitcoinExchange
 {
@@ -35,7 +36,8 @@ class BitcoinExchange
 		std::map<std::string, double>	_map;
 
 		static bool		parse_line(std::string &line, std::string &date, double &value);
-		static bool		date_valid(int year, int month, int day);
+		static bool		date_valid(std::string const &y, std::string const &m, std::string const &d);
+		static bool		value_valid(std::string const &value);
 
 
 		BitcoinExchange(BitcoinExchange const &b);

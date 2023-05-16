@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:45:25 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/16 13:29:20 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/16 13:45:14 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &v
 	}
 	if (line.find_first_not_of("0123456789-.| ") != std::string::npos)
 	{
-		std::cout << "Extra symbol" << std::endl;
+		std::cout << "Error: Extra symbol" << std::endl;
 		return (false);
 	}
 	it0 = line.find_first_not_of(" ", 0);
@@ -99,29 +99,28 @@ bool	BitcoinExchange::parse_line(std::string &line, std::string &date, double &v
 	it3 = line.find_first_of("| ", it2 + 1);
 	if (it1 == std::string::npos || it2 == std::string::npos || it3 == std::string::npos)
 	{
-		std::cerr << "Missing sign: - or |" << std::endl;
+		std::cerr << "Error: Missing sign - or |: " << line << std::endl;
 		return (false);
 	}
+	date = line.substr(it0, it3 - it0);
 	if (!date_valid(line.substr(it0, it1 - it0),
 					line.substr(it1 + 1, it2 - it1 - 1),
 					line.substr(it2 + 1, it3 - it2 - 1)))
 	{
-		std::cerr << "Invalid date" << std::endl;
+		std::cerr << "Error: Invalid date: " << date << std::endl;
 		return (false);
 	}
-	date = line.substr(it0, it3 - it0);
 	it4 = line.find_first_not_of("| ", it3);
 	value = line.substr(it4, std::string::npos);
 	if (!value_valid(value))
 	{
-		std::cout << "value: " << value << "$" << std::endl;
-		std::cout << "value not valid" << std::endl;
+		std::cout << "Error: Invalid value: " << value << std::endl;
 		return (false);
 	}
 	val = strtod(value.c_str(), NULL);
 	if (val < 0 || val > 1000)
 	{
-		std::cerr << "Value out of range" << std::endl;
+		std::cerr << "Error: Value out of range: " << value << std::endl;
 		return (false);
 	}
 	return (true);

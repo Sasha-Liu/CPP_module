@@ -6,7 +6,7 @@
 /*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:52 by hsliu             #+#    #+#             */
-/*   Updated: 2023/05/16 16:30:42 by hsliu            ###   ########.fr       */
+/*   Updated: 2023/05/16 17:11:45 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,31 @@
 #include <list>
 #include <iostream>
 
-void	print_vec(std::vector<int> const &vec)
-{
-	for (std::vector<int>::const_iterator i = vec.begin(); i != vec.end(); i++)
-		std::cout << *i << " ";
-	std::cout << std::endl;
-}
+#define NUM 5
 
-void	print_lst(std::list<int> const &lst)
+int main(int argc, char **argv)
 {
-	for (std::list<int>::const_iterator i = lst.begin(); i != lst.end(); i++)
-		std::cout << *i << " ";
-	std::cout << std::endl;
-}
-
-int main(void)
-{
-	PmergeMe	pm;
-	int			a[20];
+	PmergeMe			pm;
+	std::vector<int>	input;
 	
-	srand(time(NULL));
-	for (int i = 0; i < 20; i++)
+	if (argc == 1)
 	{
-		a[i] = rand() % 100;
+		std::cout << "Please enter some number" << std::endl;
+		return (0);
+	}
+	for (int i = 1; i < argc; i++)
+	{
+		input.push_back(atoi(argv[i]));
 	}
 	
-	std::vector<int>	vec(a, a + 20);
-	std::list<int>		lst(a, a + 20);
+	std::vector<int>	vec(input.begin(), input.end());
+	std::list<int>		lst(input.begin(), input.end());
 	
-	std::cout << "vec: ";
-	print_vec(vec);
-	std::cout << "lst: ";
-	print_lst(lst);
+	std::cout << "Before: " << vec << std::endl;
+	
+	pm.sort_and_timed(lst);
+	pm.sort_and_timed(vec);
+	
+	std::cout << "After: " << vec << std::endl;	
 
-	pm.merge_insert(vec);
-	pm.merge_insert(lst);
-	
-	std::cout << "vec: ";
-	print_vec(vec);
-	std::cout << "lst: ";
-	print_lst(lst);
 }

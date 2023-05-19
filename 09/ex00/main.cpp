@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 14:33:16 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/15 18:38:19 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/19 11:10:49 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	}
 	if (!bc.read_data())
 	{
-		std::cout << "cannot open file: data.csv" << std::endl;
 		return (0);
 	}
 	bc.process(argv[1]);

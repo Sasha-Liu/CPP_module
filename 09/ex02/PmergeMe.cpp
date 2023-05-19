@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasha <sasha@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hsliu <hsliu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 20:25:11 by sasha             #+#    #+#             */
-/*   Updated: 2023/05/16 21:53:31 by sasha            ###   ########.fr       */
+/*   Updated: 2023/05/19 11:10:41 by hsliu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	PmergeMe::sort_and_timed(std::vector<int> const &data)
 	start = get_time();
 	merge_insert(lst);
 	time2 = get_time() - start;
-	std::cout << "Before: " << data << std::endl;
-	std::cout << "After: " << vec << std::endl;
+	std::cout << "Before: " << data;
+	std::cout << "After: " << vec;
 	std::cout << "Using vector: " << time1 << " ms" << std::endl;
 	std::cout << "Using list: " << time2 << " ms" << std::endl;
 }
